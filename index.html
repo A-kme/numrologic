@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NumroLogic | Unlock Your Destiny Through Numbers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --deep:       #26215C;
+      --deeper:     #1A1648;
+      --orb:        #3C3489;
+      --purple:     #7F77DD;
+      --mid:        #534AB7;
+      --lavender:   #EEEDFE;
+      --soft:       #CECBF6;
+      --gold:       #EF9F27;
+      --gold-dim:   #C8861E;
+      --white:      #FFFFFF;
+      --off-white:  #F9F8FF;
+      --text-dark:  #151126;
+      --text-mid:   #534AB7;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: var(--off-white);
+      color: var(--text-dark);
+      width: 100%;
+      max-width: 430px;
+      margin: 0 auto;
+      overflow-x: hidden;
+      padding-bottom: 132px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Noto Serif', serif;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1.25;
+    }
+
+    /* ── ORB DARK BG ── */
+    .orb-bg {
+      background: linear-gradient(160deg, #3C3489 0%, #26215C 60%, #1A1648 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .orb-bg::before {
+      content: '';
+      position: absolute;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(206,203,246,0.1) 0%, transparent 70%);
+      top: -80px; right: -80px;
+      pointer-events: none;
+    }
+    .orb-bg::after {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(127,119,221,0.08) 0%, transparent 70%);
+      bottom: -60px; left: -40px;
+      pointer-events: none;
+    }
+
+    .section-pad    { padding: 56px 20px; }
+    .section-pad-sm { padding: 36px 20px; }
+
+    /* ── PILL BUTTON ── */
+    .btn-primary {
+      display: block;
+      width: 100%;
+      background: linear-gradient(135deg, #EF9F27 0%, #C8861E 100%);
+      color: #fff;
+      font-family: 'Noto Serif', serif;
+      font-weight: 600;
+      font-size: 1rem;
+      text-align: center;
+      padding: 18px 24px;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      transition: filter 0.2s;
+      line-height: 1.3;
+    }
+    .btn-primary:hover { filter: brightness(1.08); }
+    .btn-primary small {
+      display: block;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 400;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      opacity: 0.85;
+      margin-top: 4px;
+    }
+
+    /* ── GRADIENT BORDER CARD ── */
+    .grad-border-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 24px;
+      position: relative;
+    }
+    .grad-border-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      padding: 1.5px;
+      background: linear-gradient(135deg, var(--purple), var(--deep));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    /* ── ARCH CARD ── */
+    .arch-card {
+      background: var(--white);
+      border-radius: 60px 60px 20px 20px;
+      overflow: hidden;
+    }
+
+    /* ── ARC-CORNER TESTIMONIAL ── */
+    .arc-card {
+      background: var(--white);
+      border-radius: 40px 20px 40px 20px;
+      padding: 24px;
+    }
+
+    /* ── DIAMOND ICON CARD ── */
+    .diamond-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+    }
+    .diamond {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, var(--purple) 0%, var(--mid) 100%);
+      transform: rotate(45deg);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .diamond-inner { transform: rotate(-45deg); font-size: 20px; }
+
+    /* ── CHECK LIST ── */
+    .check-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    .check-circle {
+      width: 24px; height: 24px; min-width: 24px;
+      border-radius: 50%;
+      background: var(--purple);
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+    .check-circle svg { width: 13px; height: 13px; fill: none; }
+    .x-circle {
+      width: 24px; height: 24px; min-width: 24px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+
+    /* ── ARROW BULLETS ── */
+    .arrow-item {
+      display: flex; gap: 10px; align-items: flex-start; margin-bottom: 16px;
+    }
+    .arrow-item .arr { color: var(--gold); font-size: 1rem; min-width: 18px; margin-top: 3px; font-weight: 700; }
+
+    /* ── POLAROID FAN ── */
+    .polaroid-fan { position: relative; height: 160px; margin-bottom: 20px; }
+    .polaroid {
+      position: absolute;
+      width: 115px;
+      background: #0f0c30;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 3px solid var(--gold);
+    }
+    .polaroid-left  { left: 16px; top: 20px; transform: rotate(-7deg); z-index: 1; }
+    .polaroid-right { right: 16px; top: 10px; transform: rotate(5deg);  z-index: 2; }
+    .pol-img { width: 100%; height: 100px; display: block; }
+    .pol-label {
+      background: #0f0c30;
+      padding: 5px 6px;
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700;
+      font-size: 0.58rem;
+      color: var(--gold);
+      text-align: center;
+      line-height: 1.2;
+    }
+    .pol-label.light { background: #fff; color: var(--deep); }
+
+    /* ── EYEBROW LABEL ── */
+    .eyebrow {
+      font-family: 'Manrope', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: none;
+      color: var(--gold);
+    }
+
+    /* ── GLASSMORPHIC BADGE ── */
+    .glass-badge {
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 9999px;
+      padding: 8px 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: white;
+    }
+
+    /* ── NUMBER ACCENT (behind card) ── */
+    .num-accent {
+      font-family: 'Noto Serif', serif;
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: #F4BE53;
+      opacity: 0.3;
+      line-height: 1;
+      text-shadow: 0 0 14px rgba(239, 159, 39, 0.16);
+      position: absolute;
+      top: 10px; right: 14px;
+    }
+
+    /* ── TIMELINE ── */
+    .t-dot {
+      width: 38px; height: 38px; min-width: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dim));
+      display: flex; align-items: center; justify-content: center;
+      color: white;
+      font-family: 'Noto Serif', serif;
+      font-weight: 600;
+      font-size: 0.75rem;
+      z-index: 1;
+    }
+
+    .journey-step {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .journey-step + .journey-step { margin-top: 32px; }
+    .journey-marker {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+    .journey-connector {
+      width: 2px;
+      height: calc(100% + 32px);
+      min-height: 130px;
+      background: linear-gradient(to bottom, var(--gold), var(--soft));
+      margin-top: 6px;
+    }
+    .journey-copy {
+      flex: 1;
+      min-width: 0;
+      padding-top: 6px;
+    }
+    .journey-image {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      margin-bottom: 12px;
+      height: auto;
+      object-fit: contain;
+      background: transparent;
+    }
+
+    .feature-card {
+      position: relative;
+      border-radius: 24px;
+      margin-top: 108px;
+      margin-bottom: 16px;
+      overflow: visible;
+    }
+    .feature-card:last-of-type { margin-bottom: 12px; }
+    .feature-card--dark {
+      background: linear-gradient(160deg, #3C3489 0%, #26215C 60%, #1A1648 100%);
+    }
+    .feature-card--light {
+      background: #fff;
+      border: 1.5px solid var(--soft);
+    }
+    .feature-card--light .feature-card__body {
+      background: #E8E0D5;
+    }
+    .feature-card__image {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, -50%);
+      width: min(100% - 28px, 332px);
+      height: auto;
+      display: block;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .feature-card__body {
+      position: relative;
+      z-index: 1;
+      padding: 112px 24px 24px;
+      border-radius: inherit;
+    }
+    .feature-card__badge {
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .feature-card--dark .feature-card__badge {
+      background: rgba(255,255,255,0.08);
+    }
+    .feature-card--light .feature-card__badge {
+      background: #5B2D8E;
+      border: 1.5px solid #7F77DD;
+      box-shadow: 0 10px 24px rgba(38, 33, 92, 0.18);
+      color: #fff;
+    }
+    .feature-card--light .feature-card__badge > div:last-child {
+      color: #fff !important;
+    }
+
+    @media (max-width: 430px) {
+      .feature-card {
+        margin-top: 92px;
+        margin-bottom: 14px;
+      }
+      .feature-card__image {
+        width: calc(100% - 16px);
+      }
+      .feature-card__body {
+        padding: 96px 18px 20px;
+      }
+      .feature-card__badge {
+        padding: 14px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .feature-card {
+        margin-top: 84px;
+      }
+      .feature-card__body {
+        padding-top: 88px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .journey-step { gap: 10px; }
+      .journey-marker { width: 38px; min-width: 38px; }
+      .journey-connector { min-height: 118px; }
+      .journey-copy { padding-top: 2px; }
+      .journey-image {
+        width: calc(100% + 8px);
+        max-width: calc(100% + 8px);
+        margin-left: -8px;
+      }
+    }
+
+    /* ── PHOTO PLACEHOLDER ── */
+    .photo-ph {
+      width: 100%; border-radius: 14px;
+      background: linear-gradient(150deg, #d4cff5, #b8b2f0);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(21,17,38,0.3);
+      font-size: 0.68rem;
+      letter-spacing: 0.03em;
+      text-transform: none;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    /* ── REPORT MOCKUP ── */
+    .report-page {
+      background: linear-gradient(150deg, #f5e8c8, #e8d5a0);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      font-family: 'Noto Serif', serif;
+    }
+
+    /* ── FAQ ── */
+    .faq-item {
+      background: var(--white);
+      border-radius: 16px;
+      margin-bottom: 12px;
+      overflow: hidden;
+      border: 1px solid var(--soft);
+    }
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .faq-q h4 {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--text-dark);
+      letter-spacing: 0;
+      line-height: 1.4;
+      padding-right: 12px;
+    }
+    .faq-icon {
+      min-width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--lavender);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--purple);
+      font-size: 1.2rem;
+      font-weight: 300;
+      line-height: 1;
+      transition: transform 0.3s;
+    }
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .faq-body.open { max-height: 300px; }
+    .faq-body-inner {
+      padding: 0 20px 18px;
+      font-size: 0.85rem;
+      color: var(--text-dark);
+      line-height: 1.75;
+    }
+    .faq-item.active .faq-icon { transform: rotate(45deg); }
+
+    /* ── STICKY BAR ── */
+    .sticky-bar {
+      position: fixed;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 100%; max-width: 430px;
+      padding: 10px 20px 14px;
+      background: rgba(26,22,72,0.96);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      border-top: 1px solid rgba(127,119,221,0.25);
+      box-shadow: 0 -14px 28px rgba(26,22,72,0.2);
+    }
+    .sticky-bar__urgency {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.92);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    .sticky-bar__pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ff6b6b;
+      box-shadow: 0 0 0 rgba(255,107,107,0.55);
+      animation: stickyPulse 1.6s infinite;
+      flex: 0 0 auto;
+    }
+    .sticky-bar__countdown {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .sticky-bar__unit {
+      min-width: 60px;
+      padding: 7px 10px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      text-align: center;
+    }
+    .sticky-bar__value {
+      display: block;
+      color: #fff;
+      font-family: 'Noto Serif', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+    .sticky-bar__label {
+      display: block;
+      color: rgba(255,255,255,0.68);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.1;
+    }
+    .sticky-bar .btn-primary { padding: 14px 20px; font-size: 0.9rem; }
+
+    @keyframes stickyPulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255,107,107,0.55); }
+      70% { transform: scale(1); box-shadow: 0 0 0 9px rgba(255,107,107,0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255,107,107,0); }
+    }
+
+    @media (max-width: 360px) {
+      body { padding-bottom: 138px; }
+      .sticky-bar { padding: 9px 14px 12px; }
+      .sticky-bar__urgency { font-size: 0.7rem; gap: 6px; margin-bottom: 7px; }
+      .sticky-bar__countdown { gap: 6px; margin-bottom: 9px; }
+      .sticky-bar__unit { min-width: 54px; padding: 6px 8px; }
+      .sticky-bar__value { font-size: 0.96rem; }
+      .sticky-bar__label { font-size: 0.56rem; }
+      .sticky-bar .btn-primary { padding: 13px 18px; font-size: 0.86rem; }
+    }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-thumb { background: var(--purple); border-radius: 3px; }
+
+    /* Celebrity slider */
+    .celeb-slider-row {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      overflow: hidden;
+      position: relative;
+      user-select: none;
+      height: clamp(130px, 44vw, 190px);
+    }
+    .celeb-slider-track {
+      display: flex;
+      animation: celeb-scroll 32s linear infinite;
+    }
+    @keyframes celeb-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .celeb-card {
+      width: clamp(100px, 36vw, 145px);
+      margin-right: 10px;
+      border-radius: 14px;
+      border: 1.5px solid rgba(239,159,39,0.25);
+      flex-shrink: 0;
+      overflow: hidden;
+      transition: transform 0.25s;
+      aspect-ratio: 3/4;
+      background: rgba(255,255,255,0.06);
+    }
+    .celeb-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .celeb-card:hover { transform: scale(1.06); z-index: 2; }
+
+    .hero-image-wrap {
+      margin: 0 -20px 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-section {
+      background: #FAF7F2;
+      position: relative;
+      overflow: hidden;
+    }
+    .mandala-bg {
+      position: absolute;
+      top: 47%;
+      left: 50%;
+      width: min(140%, 560px);
+      transform: translate(-50%, -50%);
+      opacity: 0.08;
+      animation: mandala-spin 60s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .mandala-bg img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .hero-section > *:not(.mandala-bg) {
+      position: relative;
+      z-index: 1;
+    }
+    @keyframes mandala-spin {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to   { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    .hero-image-wrap::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: 118px;
+      width: 84%;
+      max-width: 360px;
+      height: 96px;
+      transform: translateX(-50%);
+      background: radial-gradient(ellipse at center, rgba(127,119,221,0.48) 0%, rgba(127,119,221,0.3) 34%, rgba(206,203,246,0.18) 58%, rgba(255,255,255,0) 82%);
+      filter: blur(18px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-image {
+      width: 100%;
+      max-width: none;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      object-fit: contain;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badge-image {
+      width: 86%;
+      max-width: 360px;
+      display: block;
+      margin: 0 auto;
+      transform: translateY(-66px);
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 10px 18px rgba(38,33,92,0.12));
+    }
+    .hero-badge-captions {
+      width: 86%;
+      max-width: 360px;
+      margin: -112px auto 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      position: relative;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .hero-badge-captions span {
+      display: block;
+      text-align: center;
+      color: var(--text-dark);
+      font-family: 'Manrope', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+      text-wrap: balance;
+      text-shadow: 0 1px 0 rgba(255,255,255,0.85);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════
+     S1 · HERO
+═══════════════════════════════════ -->
+<section class="hero-section" style="text-align:center;padding:44px 20px 40px;">
+
+  <div class="mandala-bg">
+    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23534AB7' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='400' cy='400' r='320'/%3E%3Ccircle cx='400' cy='400' r='260'/%3E%3Ccircle cx='400' cy='400' r='200'/%3E%3Ccircle cx='400' cy='400' r='140'/%3E%3Ccircle cx='400' cy='400' r='80'/%3E%3Ccircle cx='400' cy='250' r='150'/%3E%3Ccircle cx='400' cy='550' r='150'/%3E%3Ccircle cx='270' cy='325' r='150'/%3E%3Ccircle cx='530' cy='325' r='150'/%3E%3Ccircle cx='270' cy='475' r='150'/%3E%3Ccircle cx='530' cy='475' r='150'/%3E%3Cpath d='M400 80v640M80 400h640M173 173l454 454M627 173L173 627'/%3E%3Cpolygon points='400,120 642,260 642,540 400,680 158,540 158,260'/%3E%3Cpolygon points='400,190 582,295 582,505 400,610 218,505 218,295'/%3E%3C/g%3E%3C/svg%3E" alt="" />
+  </div>
+
+  <p class="eyebrow" style="margin-bottom:12px;position:relative;z-index:1;font-family:'Noto Serif',serif;font-size:1.08rem;font-weight:600;letter-spacing:0.01em;line-height:1.45;text-transform:none;">
+    If you've ever worked hard, prayed harder, and still felt stuck
+  </p>
+  <p style="color:var(--mid);font-family:'Noto Serif',serif;font-size:1.08rem;margin-bottom:18px;position:relative;z-index:1;font-weight:600;letter-spacing:0.01em;line-height:1.45;">Then read this before you try anything else.</p>
+
+  <h1 style="color:var(--text-dark); font-size:2rem; margin-bottom:4px; position:relative; z-index:1; line-height:1.2;">
+    Your Guide to Unlocking
+  </h1>
+  <h1 style="color:var(--purple); font-size:2rem; font-style:italic; margin-bottom:14px; position:relative; z-index:1;">
+    Success, Love &amp; Money
+  </h1>
+  <p style="color:rgba(21,17,38,0.76);font-size:0.92rem;line-height:1.7;max-width:340px;margin:0 auto 24px;position:relative;z-index:1;">
+    A personalized numerology report that shows what is blocking your progress and what small correction can shift your path.
+  </p>
+
+  <div style="display:flex; justify-content:center; margin-bottom:16px; position:relative; z-index:1;">
+    <div style="display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;border-radius:9999px;background:linear-gradient(135deg,#fffdf4 0%,#f8f4ff 100%);border:1.5px solid rgba(239,159,39,0.28);box-shadow:0 10px 24px rgba(83,74,183,0.12);font-family:'Manrope',sans-serif;font-size:0.72rem;font-weight:700;color:var(--deep);white-space:nowrap;line-height:1;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;padding:6px 9px;border-radius:9999px;background:linear-gradient(135deg,var(--gold) 0%,#f6c768 100%);color:#fff;font-size:0.72rem;letter-spacing:0.08em;box-shadow:0 6px 14px rgba(239,159,39,0.28);">★★★★★</span>
+      <span>Trusted by <span style="color:var(--purple);font-weight:800;">1500+</span> people from all over India</span>
+    </div>
+  </div>
+
+  <div class="hero-image-wrap">
+    <img
+      class="hero-image"
+      src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1775431329/Untitled_design_42_o5qegt.png"
+      alt="Numerology report hero visual"
+    />
+    <img
+      src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1775432139/Untitled_design_43_xmpclv.png"
+      alt=""
+      class="hero-badge-image"
+    />
+    <div class="hero-badge-captions">
+      <span>Reports Delivered</span>
+      <span>Ratings</span>
+      <span>Personalized Report</span>
+    </div>
+  </div>
+
+  <a href="#order" class="btn-primary" style="position:relative;z-index:1;">
+    Yes, Send My Report →
+    <small>Join 1,500+ people who discovered their path</small>
+  </a>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     S2 · DARK PROBLEM SECTION
+═══════════════════════════════════ -->
+<section class="orb-bg section-pad">
+  <div style="position:relative;z-index:1;">
+    <h2 style="color:#fff;font-size:1.55rem;text-align:center;font-style:italic;margin-bottom:6px;">Have You Ever Thought…</h2>
+    <h2 style="color:#fff;font-size:1.45rem;text-align:center;margin-bottom:32px;line-height:1.4;">Why Do Some People Struggle While Others Get Everything Easily?</h2>
+
+    <video
+      id="s2-video"
+      muted
+      loop
+      playsinline
+      preload="none"
+      poster="https://res.cloudinary.com/dpkzdwprk/video/upload/f_auto,q_auto,w_430,so_0/v1775299412/Yellow_Black_Classic_Vinyl_Music_Visualizer_YouTube_Video_2_2_xvbavh.jpg"
+      style="width:100%;border-radius:16px;display:block;"
+    >
+      <source data-src="https://res.cloudinary.com/dpkzdwprk/video/upload/q_auto,w_430/v1775299412/Yellow_Black_Classic_Vinyl_Music_Visualizer_YouTube_Video_2_2_xvbavh.webm" type="video/webm"/>
+      <source data-src="https://res.cloudinary.com/dpkzdwprk/video/upload/f_mp4,q_auto,w_430/v1775299412/Yellow_Black_Classic_Vinyl_Music_Visualizer_YouTube_Video_2_2_xvbavh.mp4" type="video/mp4"/>
+    </video>
+  </div>
+  <div style="padding-top:14px;position:relative;z-index:1;">
+    <div style="padding:20px;background:rgba(255,255,255,0.05);border-radius:20px;margin-bottom:28px;">
+    <div class="arrow-item">
+      <span class="arr">»</span>
+      <p style="color:#fff;font-size:0.9rem;line-height:1.65;"><strong>You prepare day and night</strong> for an interview… but rejection hits again.</p>
+    </div>
+    <div class="arrow-item">
+      <span class="arr">»</span>
+      <p style="color:#fff;font-size:0.9rem;line-height:1.65;"><strong>You give your 100% in love</strong>… but the relationship still breaks.</p>
+    </div>
+    <div class="arrow-item" style="margin-bottom:0;">
+      <span class="arr">»</span>
+      <p style="color:#fff;font-size:0.9rem;line-height:1.65;"><strong>You work harder than anyone</strong> in your office… but money slips away.</p>
+    </div>
+
+    <div style="margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08);">
+      <p style="color:rgba(255,255,255,0.65);font-family:'Noto Serif',serif;font-style:italic;font-size:0.875rem;text-align:center;">
+        And you wonder: <span style="color:var(--gold);text-decoration:underline;text-decoration-style:dotted;">"Why is life so unfair?"</span>
+      </p>
+    </div>
+    </div>
+
+    <a href="#order" class="btn-primary">Reveal What's Blocking My Growth →</a>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     S5 · EARLY TESTIMONIALS
+═══════════════════════════════════ -->
+<section class="section-pad" style="background:var(--lavender);">
+  <h2 style="color:var(--text-dark);font-size:1.5rem;text-align:center;margin-bottom:28px;">What People Are Saying</h2>
+
+  <div class="arc-card" style="margin-bottom:16px;">
+    <p style="font-family:'Noto Serif',serif;font-style:italic;color:var(--text-dark);font-size:0.9rem;line-height:1.75;margin-bottom:14px;text-align:center;">
+      "After using the Name Correction Report, I added just one letter to my name. Within a month, I got two job offers — one from a company that had earlier rejected me."
+    </p>
+    <div style="text-align:center;">
+      <div style="font-weight:700;color:var(--purple);font-size:0.85rem;">Ritika Sharma — Gurgaon</div>
+      <div style="color:var(--gold);font-size:0.9rem;margin-top:4px;">★★★★★</div>
+    </div>
+  </div>
+
+  <div class="arc-card">
+    <p style="font-family:'Noto Serif',serif;font-style:italic;color:var(--text-dark);font-size:0.9rem;line-height:1.75;margin-bottom:14px;text-align:center;">
+      "I made the small change they suggested, and within 2 months my agency signed 3 long-term clients. I didn't expect results this clear, but it worked."
+    </p>
+    <div style="text-align:center;">
+      <div style="font-weight:700;color:var(--purple);font-size:0.85rem;">Kunal Arora — Mumbai</div>
+      <div style="color:var(--gold);font-size:0.9rem;margin-top:4px;">★★★★★</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     S6 · FIRST CTA
+═══════════════════════════════════ -->
+<section style="background:linear-gradient(135deg,#3C3489,#26215C);padding:28px 20px;">
+  <a href="#order" class="btn-primary">Yes, Send My Report →</a>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     S7 · DREAM / VISION BENEFIT CARDS
+═══════════════════════════════════ -->
+<section style="background:var(--off-white);padding:56px 0 72px;">
+  <div style="padding:0 20px;text-align:center;margin-bottom:32px;">
+    <p class="eyebrow" style="margin-bottom:8px;font-size:1.1rem;text-transform:none;font-weight:700;">Imagine Your Life......</p>
+    <h2 style="color:var(--text-dark);font-size:1.65rem;">Starting to Flow Again</h2>
+  </div>
+
+  <!-- Card 1 White -->
+  <div style="margin:115px 45px 16px;background:#F0EEFF;border-radius:24px;padding:105px 20px 28px;border:1.5px solid var(--soft);border-top:3px solid var(--deep);position:relative;overflow:visible;">
+    <img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1775305193/Blue_White_Modern_Buy_1_Get_1_Promotion_Instagram_Post_yrzwfm.png" alt="Benefit visual" style="position:absolute;top:-115px;left:50%;transform:translateX(-50%);width:230px;height:auto;"/>
+    <p style="color:var(--text-dark);font-size:0.9rem;line-height:1.7;text-align:center;"><strong>Good things start happening easily</strong> and you stop facing so many small daily blocks.</p>
+  </div>
+
+  <!-- Card 2 Light Purple -->
+  <div style="margin:115px 45px 16px;background:#dec2ff;border-radius:24px;padding:105px 20px 28px;border-top:3px solid var(--deep);position:relative;overflow:visible;">
+    <img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1775382015/3_4_uo8gxw.webp" alt="Benefit visual" style="position:absolute;top:-115px;left:50%;transform:translateX(-50%);width:230px;height:auto;"/>
+    <p style="color:var(--text-dark);font-size:0.9rem;line-height:1.7;text-align:center;"><strong>Money begins to stay with you longer</strong> and comes in without constant delay or stress.</p>
+  </div>
+
+  <!-- Card 3 White -->
+  <div style="margin:115px 45px 16px;background:#F0EEFF;border-radius:24px;padding:105px 20px 28px;border:1.5px solid var(--soft);border-top:3px solid var(--deep);position:relative;overflow:visible;">
+    <img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1775382017/4_1_nkx5dk.webp" alt="Benefit visual" style="position:absolute;top:-115px;left:50%;transform:translateX(-50%);width:230px;height:auto;"/>
+    <p style="color:var(--text-dark);font-size:0.9rem;line-height:1.7;text-align:center;"><strong>People talk to you nicely</strong> and relationships start feeling calm, happy, and more understanding.</p>
+  </div>
+
+  <!-- Card 4 Light Purple -->
+  <div style="margin:115px 45px 16px;background:#dec2ff;border-radius:24px;padding:105px 20px 28px;border-top:3px solid var(--deep);position:relative;overflow:visible;">
+    <img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1775382021/5_1_evlyar.webp" alt="Benefit visual" style="position:absolute;top:-115px;left:50%;transform:translateX(-50%);width:230px;height:auto;"/>
+    <p style="color:var(--text-dark);font-size:0.9rem;line-height:1.7;text-align:center;">You wake up with a <strong>fresh mind, clear thoughts, and confidence</strong> to handle your day.</p>
+  </div>
+
+  <!-- Card 5 White -->
+  <div style="margin:115px 45px 0;background:#F0EEFF;border-radius:24px;padding:105px 20px 28px;border:1.5px solid var(--soft);border-top:3px solid var(--deep);position:relative;overflow:visible;">
+    <img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1775382024/6_2_vbrrga.webp" alt="Benefit visual" style="position:absolute;top:-115px;left:50%;transform:translateX(-50%);width:230px;height:auto;"/>
+    <p style="color:var(--text-dark);font-size:0.9rem;line-height:1.7;text-align:center;"><strong>Your mind will stop thinking again and again</strong> about old problems.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     S8 · CELEBRITY PROOF
+═══════════════════════════════════ -->
+<section class="orb-bg section-pad">
+  <div style="position:relative;z-index:1;">
+    <h2 style="color:#fff;font-size:1.45rem;text-align:center;margin-bottom:4px;line-height:1.35;">Most people don't know how many successful stars</h2>
+    <h2 style="color:var(--gold);font-size:1.45rem;text-align:center;font-style:italic;margin-bottom:24px;">changed their NAME….</h2>
+  </div>
+
+  <!-- Auto-scroll image slider —— full bleed -->
+  <div class="celeb-slider-row" style="position:relative;z-index:1;margin-bottom:24px;">
+    <div class="celeb-slider-track">
+      <div class="celeb-card"><img src="https://i.ibb.co/XgXBJZd/8.webp" alt="Celebrity"></div>
+      <div class="celeb-card"><img src="https://i.ibb.co/x8LNxvq0/8.jpg" alt="Celebrity"></div>
+      <div class="celeb-card"><img src="https://i.ibb.co/x8gjm82y/7.jpg" alt="Celebrity"></div>
+      <div class="celeb-card"><img src="https://i.ibb.co/XZ1tJC8q/6.jpg" alt="Celebrity"></div>
+      <div class="celeb-card"><img src="https://i.ibb.co/vvwnjt6t/5.jpg" alt="Celebrity"></div>
+      <div class="celeb-card"><img src="https://i.ibb.co/gMH53BQY/4.jpg" alt="Celebrity"></div>
+      <div class="celeb-card"><img src="https://i.ibb.co/3ygMxcps/3.jpg" alt="Celebrity"></div>
+      <div class="celeb-card"><img src="https://i.ibb.co/LDQP06gt/2.jpg" alt="Celebrity"></div>
+      <div class="celeb-card"><img src="https://i.ibb.co/svhB4DFQ/1.jpg" alt="Celebrity"></div>
+      <!-- duplicate for seamless loop -->
+      <div class="celeb-card"><img src="https://i.ibb.co/XgXBJZd/8.webp" alt="Celebrity"></div>
+      <div class="celeb-card"><img src="https://i.ibb.co/x8LNxvq0/8.jpg" alt="Celebrity"></div>
+      <div class="celeb-card"><img src="https://i.ibb.co/x8gjm82y/7.jpg" alt="Celebrity"></div>
+      <div class="celeb-card"><img src="https://i.ibb.co/XZ1tJC8q/6.jpg" alt="Celebrity"></div>
+      <div class="celeb-card"><img src="https://i.ibb.co/vvwnjt6t/5.jpg" alt="Celebrity"></div>
+      <div class="celeb-card"><img src="https://i.ibb.co/gMH53BQY/4.jpg" alt="Celebrity"></div>
+      <div class="celeb-card"><img src="https://i.ibb.co/3ygMxcps/3.jpg" alt="Celebrity"></div>
+      <div class="celeb-card"><img src="https://i.ibb.co/LDQP06gt/2.jpg" alt="Celebrity"></div>
+      <div class="celeb-card"><img src="https://i.ibb.co/svhB4DFQ/1.jpg" alt="Celebrity"></div>
+    </div>
+  </div>
+
+  <div style="position:relative;z-index:1;padding:0 24px;text-align:center;">
+    <p style="color:var(--gold);font-weight:700;font-size:0.95rem;margin-bottom:8px;font-family:'Noto Serif',serif;">PEACE, MONEY, and LOVE start coming to you on their own</p>
+    <p style="color:rgba(255,255,255,0.72);font-size:0.85rem;font-style:italic;line-height:1.65;">You <strong style="color:#fff;">won't have to chase anymore.</strong> Before I show you why, answer this in your head…</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     S9 · WITH / WITHOUT REPORT
+═══════════════════════════════════ -->
+<section style="background:var(--off-white);padding:28px 20px 56px;">
+  <p class="eyebrow" style="text-align:center;margin-bottom:6px;font-family:'Noto Serif',serif;font-size:1.28rem;font-weight:700;letter-spacing:0.01em;line-height:1.3;">Here is how your life looks like…</p>
+  <h2 style="color:var(--text-dark);font-size:1.55rem;text-align:center;margin-bottom:28px;">The Difference Is Real</h2>
+
+  <!-- WITH -->
+  <div class="arch-card" style="margin-top:115px;margin-bottom:16px;padding:105px 24px 24px;position:relative;overflow:visible;background:#dec2ff;">
+    <img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1775387327/7_ds6edy.png" alt="With report visual" style="position:absolute;top:-115px;left:50%;transform:translateX(-50%);width:230px;height:auto;filter:drop-shadow(0 10px 14px rgba(21,17,38,0.10));">
+    <div style="display:flex;align-items:center;justify-content:center;margin:10px 0 20px;">
+      <h3 style="color:var(--text-dark);font-size:1.14rem;">With Our <span style="color:var(--purple);">Report</span></h3>
+    </div>
+    <div class="check-item">
+      <div class="check-circle"><svg viewBox="0 0 12 10" stroke="white" stroke-width="2.2" stroke-linecap="round"><polyline points="1,5 4,8 11,1"/></svg></div>
+      <p style="color:var(--text-dark);font-size:0.875rem;line-height:1.65;"><strong>No more confusion</strong> about why life feels blocked.</p>
+    </div>
+    <div class="check-item">
+      <div class="check-circle"><svg viewBox="0 0 12 10" stroke="white" stroke-width="2.2" stroke-linecap="round"><polyline points="1,5 4,8 11,1"/></svg></div>
+      <p style="color:var(--text-dark);font-size:0.875rem;line-height:1.65;">Suddenly, <strong>doors that always felt closed</strong> begin to open.</p>
+    </div>
+    <div class="check-item">
+      <div class="check-circle"><svg viewBox="0 0 12 10" stroke="white" stroke-width="2.2" stroke-linecap="round"><polyline points="1,5 4,8 11,1"/></svg></div>
+      <p style="color:var(--text-dark);font-size:0.875rem;line-height:1.65;">You'll walk into rooms with <strong>natural authority and presence.</strong></p>
+    </div>
+    <div class="check-item">
+      <div class="check-circle"><svg viewBox="0 0 12 10" stroke="white" stroke-width="2.2" stroke-linecap="round"><polyline points="1,5 4,8 11,1"/></svg></div>
+      <p style="color:var(--text-dark);font-size:0.875rem;line-height:1.65;">You <strong>stop second-guessing destiny, stop blaming karma,</strong> and start living with inner calm that no rejection can shake.</p>
+    </div>
+    <div class="check-item" style="margin-bottom:0;">
+      <div class="check-circle"><svg viewBox="0 0 12 10" stroke="white" stroke-width="2.2" stroke-linecap="round"><polyline points="1,5 4,8 11,1"/></svg></div>
+      <p style="color:var(--text-dark);font-size:0.875rem;line-height:1.65;">Feeling in <strong>flow and guided</strong> every single day.</p>
+    </div>
+  </div>
+
+  <!-- WITHOUT -->
+  <div class="orb-bg" style="border-radius:60px 60px 20px 20px;padding:105px 24px 24px;position:relative;overflow:visible;margin-top:115px;">
+    <img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1775387323/8_gx6axz.png" alt="Without report visual" style="position:absolute;top:-115px;left:50%;transform:translateX(-50%);width:230px;height:auto;filter:drop-shadow(0 12px 18px rgba(148,148,168,0.22));">
+    <div style="display:flex;align-items:center;justify-content:center;margin:10px 0 20px;position:relative;z-index:1;">
+      <h3 style="color:#fff;font-size:1.14rem;">Without Our <span style="color:var(--gold);">Report</span></h3>
+    </div>
+    <div style="position:relative;z-index:1;">
+      <div class="check-item">
+        <div class="x-circle"><svg viewBox="0 0 12 12" stroke="white" stroke-width="2" stroke-linecap="round"><line x1="2" y1="2" x2="10" y2="10"/><line x1="10" y1="2" x2="2" y2="10"/></svg></div>
+        <p style="color:rgba(255,255,255,0.85);font-size:0.875rem;line-height:1.65;">Constantly confused why <strong style="color:#fff;">life feels blocked</strong> no matter how hard you try.</p>
+      </div>
+      <div class="check-item">
+        <div class="x-circle"><svg viewBox="0 0 12 12" stroke="white" stroke-width="2" stroke-linecap="round"><line x1="2" y1="2" x2="10" y2="10"/><line x1="10" y1="2" x2="2" y2="10"/></svg></div>
+        <p style="color:rgba(255,255,255,0.85);font-size:0.875rem;line-height:1.65;">Doors stay closed. <strong style="color:#fff;">Opportunities keep passing</strong> you by.</p>
+      </div>
+      <div class="check-item">
+        <div class="x-circle"><svg viewBox="0 0 12 12" stroke="white" stroke-width="2" stroke-linecap="round"><line x1="2" y1="2" x2="10" y2="10"/><line x1="10" y1="2" x2="2" y2="10"/></svg></div>
+        <p style="color:rgba(255,255,255,0.85);font-size:0.875rem;line-height:1.65;">Keep <strong style="color:#fff;">blaming luck, destiny, or karma</strong> without ever finding the real answer.</p>
+      </div>
+      <div class="check-item" style="margin-bottom:0;">
+        <div class="x-circle"><svg viewBox="0 0 12 12" stroke="white" stroke-width="2" stroke-linecap="round"><line x1="2" y1="2" x2="10" y2="10"/><line x1="10" y1="2" x2="2" y2="10"/></svg></div>
+        <p style="color:rgba(255,255,255,0.85);font-size:0.875rem;line-height:1.65;">Stuck in the same <strong style="color:#fff;">patterns of stress, confusion, and missed chances</strong> — forever.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     S10 · HIDDEN COST CARD
+═══════════════════════════════════ -->
+<section style="background:var(--lavender);padding:56px 20px;">
+  <div class="grad-border-card">
+    <p class="eyebrow" style="margin-bottom:10px;">The spiritual science behind it</p>
+    <h2 style="color:var(--text-dark);font-size:1.35rem;margin-bottom:4px;">The hidden cost of a</h2>
+    <h2 style="color:var(--purple);font-size:1.35rem;font-style:italic;margin-bottom:20px;">misaligned name…</h2>
+
+    <p style="font-size:0.875rem;line-height:1.75;color:var(--text-dark);margin-bottom:14px;">
+      Most people think life changes with <strong style="color:var(--text-dark);">motivation, effort, or mindset.</strong> And yes, that's true. But there's more to it.
+    </p>
+    <p style="font-size:0.875rem;line-height:1.75;color:var(--text-dark);margin-bottom:14px;">
+      Your name carries energy that subtly affects how you think, connect, and <strong style="color:var(--text-dark);">attract things.</strong> When that energy feels misaligned, it shows up as <strong style="color:var(--text-dark);">delays, confusion, or missed chances.</strong>
+    </p>
+    <p style="font-size:0.875rem;line-height:1.75;color:var(--text-dark);margin-bottom:20px;">
+      In numerology, <strong style="color:var(--text-dark);">every letter in your name holds its own vibration.</strong> When that doesn't match your <strong style="color:var(--text-dark);">birth date or life path,</strong> it quietly creates friction affecting:
+    </p>
+
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="color:var(--gold);font-size:0.9rem;">✦</span><span style="font-weight:600;color:var(--text-dark);font-size:0.875rem;">Career growth &amp; opportunities</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="color:var(--gold);font-size:0.9rem;">✦</span><span style="font-weight:600;color:var(--text-dark);font-size:0.875rem;">Confidence and mental clarity</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="color:var(--gold);font-size:0.9rem;">✦</span><span style="font-weight:600;color:var(--text-dark);font-size:0.875rem;">Money flow and financial alignment</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <span style="color:var(--gold);font-size:0.9rem;">✦</span><span style="font-weight:600;color:var(--text-dark);font-size:0.875rem;">Relationships and emotional harmony</span>
+      </div>
+    </div>
+
+    <!-- Name correction diagram -->
+    <div style="background:var(--lavender);border-radius:16px;padding:18px;text-align:center;">
+      <p style="font-size:0.7rem;letter-spacing:0.03em;text-transform:none;color:var(--purple);font-weight:600;margin-bottom:14px;">Name correction example</p>
+      <div style="display:flex;align-items:center;justify-content:center;gap:14px;">
+        <div style="text-align:center;">
+          <div style="font-family:'Noto Serif',serif;font-size:1.3rem;color:rgba(21,17,38,0.38);text-decoration:line-through;font-weight:600;">Harsh</div>
+          <div style="font-size:0.62rem;color:rgba(83,74,183,0.55);margin-top:2px;">before</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+          <div style="color:var(--gold);font-size:1.1rem;">→</div>
+          <div style="width:34px;height:34px;border-radius:50%;border:2px solid var(--gold);background:var(--soft);display:flex;align-items:center;justify-content:center;color:var(--deep);font-size:0.9rem;">👤</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:'Noto Serif',serif;font-size:1.3rem;color:var(--purple);font-weight:600;">Haarsh</div>
+          <div style="font-size:0.62rem;color:var(--gold);margin-top:2px;font-weight:700;">aligned ✦</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     S11 · PRODUCT INTRODUCTION
+═══════════════════════════════════ -->
+<section class="orb-bg" style="background:linear-gradient(to bottom,var(--lavender) 0%,var(--orb) 11%,var(--deep) 54%,var(--deeper) 100%);padding:0;">
+
+  <div style="padding:44px 20px 28px;position:relative;z-index:1;text-align:center;">
+    <h2 style="color:#fff;font-size:1.45rem;margin-bottom:4px;">The First Complete</h2>
+    <h2 style="color:var(--gold);font-size:1.45rem;font-style:italic;margin-bottom:4px;">Name Correction Method</h2>
+    <p style="color:#fff;font-size:0.96rem;letter-spacing:0.03em;text-transform:none;margin-top:8px;">Built for Indian people</p>
+    <div style="width:88px;height:3px;background:linear-gradient(to right,var(--gold),transparent);margin:18px auto 0;"></div>
+  </div>
+
+  <div class="arch-card" style="margin:0 12px 0;padding:28px 24px 32px;">
+    <div style="text-align:center;margin-bottom:20px;">
+      <p style="color:var(--mid);font-family:'Noto Serif',serif;font-size:0.98rem;font-style:italic;font-weight:600;letter-spacing:0.02em;margin-bottom:8px;">Introducing the</p>
+      <h3 style="color:var(--text-dark);font-size:1.25rem;line-height:1.35;margin-bottom:20px;">Your Personalized<br/><span style="color:var(--purple);">Name Correction Report</span></h3>
+      <!-- Report visual -->
+      <div id="heroFlip" data-interval="1000" data-maxwidth="380" data-maxheight="65" data-aspect-w="768" data-aspect-h="1086" style="margin-bottom:24px;"></div>
+      <script id="heroFlipPages" type="application/json">
+[
+  "https://res.cloudinary.com/dhjsqmejb/image/upload/v1761763753/1_1_mkvc7q.webp",
+  "https://res.cloudinary.com/dhjsqmejb/image/upload/v1761763753/2_2_cb6gn8.webp",
+  "https://res.cloudinary.com/dhjsqmejb/image/upload/v1761763752/3_2_tbup3c.webp",
+  "https://res.cloudinary.com/dhjsqmejb/image/upload/v1761763753/4_rylkca.webp",
+  "https://res.cloudinary.com/dhjsqmejb/image/upload/v1761763753/5_ku4602.webp",
+  "https://res.cloudinary.com/dhjsqmejb/image/upload/v1761763751/6_atnh7c.webp",
+  "https://res.cloudinary.com/dhjsqmejb/image/upload/v1761763752/7_rux2p1.webp",
+  "https://res.cloudinary.com/dhjsqmejb/image/upload/v1761763751/8_1_v4ovni.webp",
+  "https://res.cloudinary.com/dhjsqmejb/image/upload/v1761763753/9_mmgo3m.webp",
+  "https://res.cloudinary.com/dhjsqmejb/image/upload/v1761764392/10_bqmzhe.webp",
+  "https://res.cloudinary.com/dhjsqmejb/image/upload/v1761764121/11_oznlra.webp",
+  "https://res.cloudinary.com/dhjsqmejb/image/upload/v1761764382/12_qv6kgo.webp"
+]
+      </script>
+      <style>
+        #heroFlip {
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
+        }
+
+        #heroFlip .wrap {
+          position: relative;
+          perspective: 2200px;
+          filter: drop-shadow(0 18px 32px rgba(0,0,0,.45));
+          overflow: hidden;
+          border-radius: 10px;
+        }
+
+        #heroFlip .book {
+          position: absolute;
+          inset: 0;
+          transform-style: preserve-3d;
+          background: linear-gradient(90deg,#0B0E16,#0E1422);
+          border-radius: 10px;
+          overflow: hidden;
+        }
+
+        #heroFlip .page-static,
+        #heroFlip .page-right,
+        #heroFlip .page-flip {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+        }
+
+        #heroFlip .page-static {
+          transform: translateZ(-2px);
+          background: #101623;
+        }
+
+        #heroFlip img {
+          width: 100% !important;
+          height: 100% !important;
+          object-fit: cover !important;
+          display: block;
+          backface-visibility: hidden;
+          transform: translateZ(0);
+          will-change: transform;
+          image-rendering: -webkit-optimize-contrast;
+          image-rendering: crisp-edges;
+        }
+
+        #heroFlip .page-right,
+        #heroFlip .page-flip {
+          transform-origin: left center;
+          backface-visibility: hidden;
+          border-left: 1px solid rgba(255,255,255,.06);
+        }
+
+        #heroFlip .page-flip {
+          transform: rotateY(0deg) translateZ(1px);
+          box-shadow: 0 6px 16px rgba(0,0,0,.55);
+        }
+
+        #heroFlip .edge {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 10px;
+          right: -1px;
+          background: linear-gradient(90deg,rgba(255,255,255,.08),rgba(255,255,255,0));
+        }
+
+        #heroFlip .sheen {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          mix-blend-mode: screen;
+          background: linear-gradient(110deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.16) 50%,rgba(255,255,255,0) 60%);
+          opacity: 0;
+        }
+
+        @keyframes heroFlipPage {
+          0% { transform: rotateY(0deg) translateZ(1px); }
+          50% { transform: rotateY(-90deg) translateZ(1px); }
+          100% { transform: rotateY(-180deg) translateZ(1px); }
+        }
+
+        #heroFlip .dots {
+          position: absolute;
+          left: 50%;
+          bottom: 6px;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 5px;
+          z-index: 5;
+        }
+
+        #heroFlip .dot {
+          width: 5px;
+          height: 5px;
+          border-radius: 999px;
+          background: rgba(255,255,255,.18);
+        }
+
+        #heroFlip .dot.active {
+          background: #D4AF37;
+        }
+
+        #heroFlip:hover .page-flip {
+          animation-play-state: paused !important;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          #heroFlip .page-flip {
+            animation: none !important;
+          }
+        }
+      </style>
+      <script>
+      (function() {
+        var root = document.getElementById('heroFlip');
+        if (!root || root.dataset.initialized === 'true') return;
+        root.dataset.initialized = 'true';
+
+        var interval = Math.max(400, parseInt(root.getAttribute('data-interval') || '1000', 10));
+        var maxw = parseInt(root.getAttribute('data-maxwidth') || '380', 10);
+        var maxhPct = parseInt(root.getAttribute('data-maxheight') || '65', 10);
+        var aspectW = parseFloat(root.getAttribute('data-aspect-w') || '768');
+        var aspectH = parseFloat(root.getAttribute('data-aspect-h') || '1086');
+        var dpr = Math.max(1, Math.min(3, window.devicePixelRatio || 1));
+
+        var pages = [];
+        try {
+          var json = document.getElementById('heroFlipPages');
+          if (json) pages = JSON.parse(json.textContent);
+        } catch (error) {}
+
+        if (!pages.length) {
+          pages = ['https://dummyimage.com/768x1086/141a2b/f3f3f3&text=No+images'];
+        }
+
+        function computeBox() {
+          var vh = window.innerHeight || document.documentElement.clientHeight || 800;
+          var maxHpx = Math.floor(vh * (maxhPct / 100));
+          if (maxHpx < 180) maxHpx = 180;
+          var maxWfromH = Math.floor(maxHpx * (aspectW / aspectH));
+          var finalW = Math.min(maxw, maxWfromH, Math.floor(window.innerWidth * 0.92));
+          var finalH = Math.floor(finalW * (aspectH / aspectW));
+          return { w: finalW, h: finalH };
+        }
+
+        var box = computeBox();
+
+        root.innerHTML =
+          '<div class="wrap" style="width:' + box.w + 'px;height:' + box.h + 'px;max-width:100%;max-height:' + box.h + 'px;overflow:hidden;position:relative;border-radius:10px;">' +
+            '<div class="book" style="width:100%;height:100%;">' +
+              '<div class="page-static" style="width:100%;height:100%;"><img alt=""></div>' +
+              '<div class="page-right" style="width:100%;height:100%;"><img alt=""></div>' +
+              '<div class="page-flip" style="width:100%;height:100%;"><div class="sheen"></div><img alt=""><span class="edge"></span></div>' +
+              '<div class="dots"></div>' +
+            '</div>' +
+          '</div>';
+
+        var els = {
+          wrap: root.querySelector('.wrap'),
+          static: root.querySelector('.page-static img'),
+          right: root.querySelector('.page-right img'),
+          flip: root.querySelector('.page-flip img'),
+          flipPane: root.querySelector('.page-flip'),
+          sheen: root.querySelector('.sheen'),
+          dots: root.querySelector('.dots')
+        };
+
+        function resizeBook() {
+          var nextBox = computeBox();
+          els.wrap.style.width = nextBox.w + 'px';
+          els.wrap.style.height = nextBox.h + 'px';
+          els.wrap.style.maxHeight = nextBox.h + 'px';
+        }
+
+        window.addEventListener('resize', resizeBook);
+
+        var dots = pages.map(function(_, idx) {
+          var dot = document.createElement('span');
+          dot.className = 'dot' + (idx === 0 ? ' active' : '');
+          els.dots.appendChild(dot);
+          return dot;
+        });
+
+        (function autosizeIfTiny() {
+          var sample = pages.slice(0, 4);
+          var minW = Infinity;
+          var loaded = 0;
+
+          sample.forEach(function(src) {
+            var image = new Image();
+            image.onload = function() {
+              var naturalWidth = image.naturalWidth || image.width || 0;
+              if (naturalWidth) minW = Math.min(minW, naturalWidth);
+              loaded += 1;
+              if (loaded === sample.length) {
+                var requiredCSS = Math.floor(minW / dpr);
+                if (requiredCSS && requiredCSS < parseInt(els.wrap.style.width, 10)) {
+                  els.wrap.style.width = requiredCSS + 'px';
+                  els.wrap.style.height = Math.floor(requiredCSS * (aspectH / aspectW)) + 'px';
+                  els.wrap.style.maxHeight = els.wrap.style.height;
+                }
+              }
+            };
+            image.src = src;
+          });
+        })();
+
+        pages.forEach(function(src) {
+          var image = new Image();
+          image.src = src;
+        });
+
+        var pageIndex = 0;
+
+        function render() {
+          var total = pages.length;
+          var current = pageIndex % total;
+          var next = (pageIndex + 1) % total;
+          var previous = (pageIndex - 1 + total) % total;
+
+          els.right.src = pages[current];
+          els.static.src = pages[previous];
+          els.flip.src = pages[next];
+
+          dots.forEach(function(dot, idx) {
+            dot.classList.toggle('active', idx === current);
+          });
+        }
+
+        function flipOnce() {
+          var pane = els.flipPane;
+          var sheen = els.sheen;
+
+          pane.style.animation = 'none';
+          void pane.offsetHeight;
+          pane.style.animation = 'heroFlipPage ' + interval + 'ms cubic-bezier(.35,.02,.2,1) forwards';
+
+          sheen.style.transition = 'opacity ' + Math.round(interval * 0.6) + 'ms ease';
+          sheen.style.opacity = '.9';
+          setTimeout(function() {
+            sheen.style.opacity = '0';
+          }, Math.round(interval * 0.45));
+
+          setTimeout(function() {
+            pageIndex = (pageIndex + 1) % pages.length;
+            render();
+            pane.style.animation = 'none';
+            pane.style.transform = 'rotateY(0deg) translateZ(1px)';
+          }, interval + 20);
+        }
+
+        function start() {
+          render();
+          flipOnce();
+          window.setInterval(flipOnce, interval + 60);
+        }
+
+        start();
+      })();
+      </script>
+    </div>
+
+    <p style="font-family:'Noto Serif',serif;font-weight:700;font-size:1.18rem;line-height:1.2;text-align:center;margin-bottom:20px;background:linear-gradient(135deg,var(--deep) 12%,var(--purple) 88%);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:0.01em;text-shadow:0 6px 18px rgba(127,119,221,0.14);">Our 3-Step Method</p>
+
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <div style="width:42px;height:42px;min-width:42px;border-radius:50%;background:linear-gradient(135deg,var(--lavender),var(--soft));display:flex;align-items:center;justify-content:center;font-size:1.2rem;">✒️</div>
+        <div>
+          <div style="font-weight:700;color:var(--text-dark);font-size:0.875rem;margin-bottom:2px;">Letter Mapping</div>
+          <div style="font-size:0.8rem;color:var(--text-dark);line-height:1.55;">Convert each letter of your name into a number using Pythagorean numerology.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <div style="width:42px;height:42px;min-width:42px;border-radius:50%;background:linear-gradient(135deg,var(--lavender),var(--soft));display:flex;align-items:center;justify-content:center;font-size:1.2rem;">📅</div>
+        <div>
+          <div style="font-weight:700;color:var(--text-dark);font-size:0.875rem;margin-bottom:2px;">Date of Birth Matching</div>
+          <div style="font-size:0.8rem;color:var(--text-dark);line-height:1.55;">Analyze life path, destiny number, and expression number.</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <div style="width:42px;height:42px;min-width:42px;border-radius:50%;background:linear-gradient(135deg,var(--lavender),var(--soft));display:flex;align-items:center;justify-content:center;font-size:1.2rem;">🔍</div>
+        <div>
+          <div style="font-weight:700;color:var(--text-dark);font-size:0.875rem;margin-bottom:2px;">Blockage Scan</div>
+          <div style="font-size:0.8rem;color:var(--text-dark);line-height:1.55;">Detect energetic conflicts or karmic debts affecting life progress.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     S12 · WHY WE'RE DIFFERENT
+═══════════════════════════════════ -->
+<section style="background:linear-gradient(to bottom,var(--deeper) 0%,var(--lavender) 12%,var(--lavender) 78%,var(--orb) 100%);padding:56px 20px 18px;">
+  <div style="text-align:center;margin-bottom:32px;">
+    <h2 style="display:inline-block;color:var(--text-dark);font-size:1.5rem;text-align:center;margin-bottom:0;padding:10px 18px;background:rgba(255,255,255,0.72);border-radius:18px;box-shadow:0 12px 30px rgba(38,33,92,0.12);">5 Reasons We're Different</h2>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:16px;">
+
+    <div style="background:#fff;border-radius:20px;padding:20px;position:relative;overflow:hidden;">
+      <span class="num-accent">1</span>
+      <div style="color:var(--purple);font-weight:800;font-size:1rem;letter-spacing:0.01em;margin-bottom:8px;">Not just one system</div>
+      <p style="font-size:0.875rem;line-height:1.7;color:var(--text-dark);">You check your name through three systems <strong>(Chaldean + Pythagorean + Vedic Astrology)</strong> so you are more certain it's the right correction.</p>
+    </div>
+
+    <div style="background:#fff;border-radius:20px;padding:20px;position:relative;overflow:hidden;">
+      <span class="num-accent">2</span>
+      <div style="color:var(--purple);font-weight:800;font-size:1rem;letter-spacing:0.01em;margin-bottom:8px;">Truly Personalized</div>
+      <p style="font-size:0.875rem;line-height:1.7;color:var(--text-dark);">Instead of a "one-size fits all" report, you get a report built just for you <strong>(your name, your birth date, your chart).</strong></p>
+    </div>
+
+    <div style="background:#fff;border-radius:20px;padding:20px;position:relative;overflow:hidden;">
+      <span class="num-accent">3</span>
+      <div style="color:var(--purple);font-weight:800;font-size:1rem;letter-spacing:0.01em;margin-bottom:8px;">Clear outcome (not just luck)</div>
+      <p style="font-size:0.875rem;line-height:1.7;color:var(--text-dark);">Instead of "get lucky," we talk about <strong>"aligning your name with your true path so things stop resisting and start flowing."</strong></p>
+    </div>
+
+    <div style="background:#fff;border-radius:20px;padding:20px;position:relative;overflow:hidden;">
+      <span class="num-accent">4</span>
+      <div style="color:var(--purple);font-weight:800;font-size:1rem;letter-spacing:0.01em;margin-bottom:8px;">Save Money</div>
+      <p style="font-size:0.875rem;line-height:1.7;color:var(--text-dark);">Most people spend thousands on multiple name changes because nothing works. <strong>With our verified process,</strong> you get the right correction the first time.</p>
+    </div>
+
+    <div style="background:#fff;border-radius:20px;padding:20px;position:relative;overflow:hidden;">
+      <span class="num-accent">5</span>
+      <div style="color:var(--purple);font-weight:800;font-size:1rem;letter-spacing:0.01em;margin-bottom:8px;">Not AI or Software - Real Human Analysis</div>
+      <p style="font-size:0.875rem;line-height:1.7;color:var(--text-dark);">Our team studies every letter, number, and planet by hand before giving you your corrected name. It's a <strong>real consultation,</strong> not an automated output.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     S13 · MID CTA
+═══════════════════════════════════ -->
+<section id="order" style="background:var(--orb);padding:26px 20px 44px;margin-top:-1px;">
+  <p class="eyebrow" style="text-align:center;margin-bottom:10px;font-size:1rem;text-transform:none;letter-spacing:0.04em;">Ready to align your destiny?</p>
+  <h2 style="color:#fff;font-size:1.4rem;text-align:center;font-style:italic;margin-bottom:28px;">Unlock your true path now</h2>
+  <a href="#order" class="btn-primary">
+    Get My Personalized Report →
+    <small>75+ page deep-dive · Delivered to your inbox</small>
+  </a>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     S14 · WHAT'S INSIDE
+═══════════════════════════════════ -->
+<section style="background:var(--off-white);padding:28px 20px 56px;">
+  <h2 style="color:var(--text-dark);font-size:1.5rem;text-align:center;margin-bottom:32px;">What You'll Unlock Inside</h2>
+
+  <!-- Feature 1 Dark -->
+  <div class="feature-card feature-card--dark">
+    <img class="feature-card__image" src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1775417719/1_jm4opv.png" alt="Full vibration analysis preview"/>
+    <div class="feature-card__body">
+      <div class="feature-card__badge">
+        <div style="font-size:1.8rem;">📊</div>
+        <div style="font-weight:700;color:#fff;font-size:0.95rem;line-height:1.3;">Full Vibration Analysis<br/>of Your Current Name</div>
+      </div>
+      <div class="check-item">
+        <div class="check-circle"><svg viewBox="0 0 12 10" stroke="white" stroke-width="2.2" stroke-linecap="round"><polyline points="1,5 4,8 11,1"/></svg></div>
+        <p style="color:rgba(255,255,255,0.85);font-size:0.85rem;line-height:1.6;"><strong style="color:#fff;">Reveals power</strong> hidden in your name</p>
+      </div>
+      <div class="check-item">
+        <div class="check-circle"><svg viewBox="0 0 12 10" stroke="white" stroke-width="2.2" stroke-linecap="round"><polyline points="1,5 4,8 11,1"/></svg></div>
+        <p style="color:rgba(255,255,255,0.85);font-size:0.85rem;line-height:1.6;">Shows if your name <strong style="color:#fff;">supports success</strong></p>
+      </div>
+      <div class="check-item" style="margin-bottom:0;">
+        <div class="check-circle"><svg viewBox="0 0 12 10" stroke="white" stroke-width="2.2" stroke-linecap="round"><polyline points="1,5 4,8 11,1"/></svg></div>
+        <p style="color:rgba(255,255,255,0.85);font-size:0.85rem;line-height:1.6;"><strong style="color:#fff;">Suggests name</strong> spellings for balance</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 2 Light -->
+  <div class="feature-card feature-card--light">
+    <img class="feature-card__image" src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1775417719/2_tjfaa7.png" alt="Core numbers preview"/>
+    <div class="feature-card__body">
+      <div class="feature-card__badge">
+      <div style="font-size:1.8rem;">🔢</div>
+      <div style="font-weight:700;color:var(--text-dark);font-size:0.95rem;line-height:1.3;">Your Core Numbers: Life Path, Destiny &amp; Expression</div>
+    </div>
+    <div class="check-item">
+      <div class="check-circle"><svg viewBox="0 0 12 10" stroke="white" stroke-width="2.2" stroke-linecap="round"><polyline points="1,5 4,8 11,1"/></svg></div>
+      <p style="color:var(--text-dark);font-size:0.85rem;line-height:1.6;"><strong>Shows your</strong> natural path and rhythm</p>
+    </div>
+    <div class="check-item">
+      <div class="check-circle"><svg viewBox="0 0 12 10" stroke="white" stroke-width="2.2" stroke-linecap="round"><polyline points="1,5 4,8 11,1"/></svg></div>
+      <p style="color:var(--text-dark);font-size:0.85rem;line-height:1.6;"><strong>Points to</strong> careers that fit you</p>
+    </div>
+    <div class="check-item" style="margin-bottom:0;">
+      <div class="check-circle"><svg viewBox="0 0 12 10" stroke="white" stroke-width="2.2" stroke-linecap="round"><polyline points="1,5 4,8 11,1"/></svg></div>
+      <p style="color:var(--text-dark);font-size:0.85rem;line-height:1.6;"><strong>Warns</strong> about habits that block progress</p>
+    </div>
+    </div>
+  </div>
+
+  <!-- Feature 3 Dark -->
+  <div class="feature-card feature-card--dark">
+    <img class="feature-card__image" src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1775417719/1_jm4opv.png" alt="Compatibility chart preview"/>
+    <div class="feature-card__body">
+      <div class="feature-card__badge">
+        <div style="font-size:1.8rem;">💑</div>
+        <div style="font-weight:700;color:#fff;font-size:0.95rem;line-height:1.3;">Compatibility Chart</div>
+      </div>
+      <div class="check-item">
+        <div class="check-circle"><svg viewBox="0 0 12 10" stroke="white" stroke-width="2.2" stroke-linecap="round"><polyline points="1,5 4,8 11,1"/></svg></div>
+        <p style="color:rgba(255,255,255,0.85);font-size:0.85rem;line-height:1.6;">Explains your <strong style="color:#fff;">love style</strong></p>
+      </div>
+      <div class="check-item">
+        <div class="check-circle"><svg viewBox="0 0 12 10" stroke="white" stroke-width="2.2" stroke-linecap="round"><polyline points="1,5 4,8 11,1"/></svg></div>
+        <p style="color:rgba(255,255,255,0.85);font-size:0.85rem;line-height:1.6;"><strong style="color:#fff;">Reveals partner</strong> match by numbers</p>
+      </div>
+      <div class="check-item" style="margin-bottom:0;">
+        <div class="check-circle"><svg viewBox="0 0 12 10" stroke="white" stroke-width="2.2" stroke-linecap="round"><polyline points="1,5 4,8 11,1"/></svg></div>
+        <p style="color:rgba(255,255,255,0.85);font-size:0.85rem;line-height:1.6;"><strong style="color:#fff;">Guides better</strong> relationship choices</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feature 4 Light -->
+  <div class="feature-card feature-card--light">
+    <img class="feature-card__image" src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1775503526/Untitled_design_44_jeezho.png" alt="Money and career cycles preview"/>
+    <div class="feature-card__body">
+      <div class="feature-card__badge">
+      <div style="font-size:1.8rem;">💰</div>
+      <div style="font-weight:700;color:var(--text-dark);font-size:0.95rem;line-height:1.3;">Money &amp; Career Cycles</div>
+    </div>
+    <div class="check-item">
+      <div class="check-circle"><svg viewBox="0 0 12 10" stroke="white" stroke-width="2.2" stroke-linecap="round"><polyline points="1,5 4,8 11,1"/></svg></div>
+      <p style="color:var(--text-dark);font-size:0.85rem;line-height:1.6;">Maps your <strong>lucky money</strong> years</p>
+    </div>
+    <div class="check-item">
+      <div class="check-circle"><svg viewBox="0 0 12 10" stroke="white" stroke-width="2.2" stroke-linecap="round"><polyline points="1,5 4,8 11,1"/></svg></div>
+      <p style="color:var(--text-dark);font-size:0.85rem;line-height:1.6;">Shows timing for <strong>growth or pause</strong></p>
+    </div>
+    <div class="check-item" style="margin-bottom:0;">
+      <div class="check-circle"><svg viewBox="0 0 12 10" stroke="white" stroke-width="2.2" stroke-linecap="round"><polyline points="1,5 4,8 11,1"/></svg></div>
+      <p style="color:var(--text-dark);font-size:0.85rem;line-height:1.6;"><strong>Reduces stress</strong> through planning ahead</p>
+    </div>
+    </div>
+  </div>
+
+  <p style="font-family:'Noto Serif',serif;font-style:italic;color:var(--text-dark);text-align:center;font-size:0.9rem;">and many more deep insights…</p>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     S15 · TIMELINE "PICTURE THIS"
+═══════════════════════════════════ -->
+<section style="background:linear-gradient(to bottom, #EEEDFE 0%, #3C3489 100%);padding:28px 20px 56px;">
+  <h2 style="color:var(--text-dark);font-size:1.5rem;text-align:center;margin-bottom:32px;">Picture This</h2>
+
+  <div class="grad-border-card">
+
+    <!-- Month 1 -->
+    <div class="journey-step">
+      <div class="journey-marker">
+        <div class="t-dot">1M</div>
+        <div class="journey-connector"></div>
+      </div>
+      <div class="journey-copy">
+        <h4 style="color:var(--gold);font-family:'Noto Serif',serif;font-size:0.95rem;margin-bottom:10px;">In just one month…</h4>
+        <img class="journey-image" src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1775412849/1_hk6xcb.png" alt="Transformation journey after one month"/>
+        <p style="font-size:0.85rem;line-height:1.75;color:var(--text-dark);">After a few weeks, life starts <strong style="color:var(--text-dark);">feeling a little lighter.</strong> You understand yourself better, stop running in circles. Life starts to settle.</p>
+      </div>
+    </div>
+
+    <!-- 90 days -->
+    <div class="journey-step">
+      <div class="journey-marker">
+        <div class="t-dot">90D</div>
+        <div class="journey-connector"></div>
+      </div>
+      <div class="journey-copy">
+        <h4 style="color:var(--purple);font-family:'Noto Serif',serif;font-size:0.95rem;margin-bottom:10px;">After 90 days…</h4>
+        <img class="journey-image" src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1775412853/2_n8sotm.png" alt="Transformation journey after ninety days"/>
+        <p style="font-size:0.85rem;line-height:1.75;color:var(--text-dark);">You start earning more because choices match your strengths. <strong style="color:var(--text-dark);">Fewer fights, fewer delays, more focus.</strong> Money starts staying with you.</p>
+      </div>
+    </div>
+
+    <!-- 1 year -->
+    <div class="journey-step">
+      <div class="journey-marker">
+        <div class="t-dot">1Y</div>
+      </div>
+      <div class="journey-copy">
+        <h4 style="color:var(--gold);font-family:'Noto Serif',serif;font-size:0.95rem;margin-bottom:10px;">1 Year from now…</h4>
+        <img class="journey-image" src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1775412855/3_bfd2hn.png" alt="Transformation journey after one year"/>
+        <p style="font-size:0.85rem;line-height:1.75;color:var(--text-dark);">After a year the change is clear. Your <strong style="color:var(--text-dark);">income is higher or more stable.</strong> Relationships feel stronger. You <strong style="color:var(--text-dark);">don't chase luck anymore</strong> — you use your timing.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:28px;padding-top:20px;border-top:1px solid var(--soft);">
+      <p style="font-size:0.8rem;color:rgba(83,74,183,0.65);text-align:center;margin-bottom:16px;">You're not confused about what to do next — you already have a clear plan that fits your numbers.</p>
+      <a href="#order" class="btn-primary">
+        Start My Transformation Now
+        <small>Attract Money · Stable Success · Stronger Relationships</small>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     S16 · FINAL CTA BANNER
+═══════════════════════════════════ -->
+<section class="orb-bg section-pad" style="text-align:center;">
+  <div style="position:relative;z-index:1;">
+    <div style="font-family:'Noto Serif',serif;font-size:5rem;font-weight:600;color:rgba(239,159,39,0.1);line-height:1;margin-bottom:-16px;">7</div>
+
+    <h2 style="color:#fff;font-size:1.65rem;line-height:1.3;margin-bottom:8px;">The Choice<br/>Is Yours</h2>
+    <p style="color:rgba(255,255,255,0.6);font-size:0.875rem;margin-bottom:28px;font-family:'Noto Serif',serif;font-style:italic;line-height:1.65;">Every day you wait is a day your name stays misaligned with your destiny.</p>
+
+    <div style="display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:26px;">
+      <img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1775475294/13_kb49sq.png" alt="Report preview" style="width:48%;max-width:154px;height:auto;display:block;border-radius:16px;box-shadow:0 14px 26px rgba(0,0,0,0.2);"/>
+      <img src="https://res.cloudinary.com/dpkzdwprk/image/upload/v1775475294/14_e11kek.png" alt="Report preview" style="width:48%;max-width:154px;height:auto;display:block;border-radius:16px;box-shadow:0 14px 26px rgba(0,0,0,0.2);"/>
+    </div>
+
+    <div style="display:flex;justify-content:center;gap:10px;margin-bottom:12px;flex-wrap:wrap;">
+      <div class="glass-badge">✦ 100% Satisfaction Guarantee</div>
+    </div>
+    <div style="display:flex;justify-content:center;gap:10px;margin-bottom:28px;flex-wrap:wrap;">
+      <div class="glass-badge">🔒 Secure &amp; Private</div>
+      <div class="glass-badge">📧 Inbox Delivery</div>
+    </div>
+
+    <a href="#order" class="btn-primary" style="max-width:360px;margin:0 auto;display:block;">
+      Start My Transformation Now →
+      <small>Attract Money · Stable Success · Stronger Relationships</small>
+    </a>
+
+    <div style="margin-top:22px;color:var(--gold);font-size:0.7rem;opacity:0.4;letter-spacing:0.35em;">✦ ✦ ✦ ✦ ✦</div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     S17 · FAQ ACCORDION
+═══════════════════════════════════ -->
+<section style="background:var(--lavender);padding:56px 20px 90px;">
+  <h2 style="color:var(--text-dark);font-size:1.5rem;text-align:center;margin-bottom:28px;">Still Have Doubts?</h2>
+
+  <div class="faq-item" id="f1">
+    <div class="faq-q" onclick="faq('f1')">
+      <h4>Will changing my name really change my life?</h4>
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-body" id="f1b">
+      <div class="faq-body-inner">
+        Numerology does not guarantee overnight results. But thousands of people experience a shift in clarity, confidence, and flow after aligning their name vibration. When your name's energy matches your life path number, resistance decreases and opportunities feel more natural.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item" id="f2">
+    <div class="faq-q" onclick="faq('f2')">
+      <h4>Do I need to legally change my name?</h4>
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-body" id="f2b">
+      <div class="faq-body-inner">
+        No legal change is required. Most people simply adjust how they write or sign their name — adding a letter or changing the spelling in daily usage. The change happens in your everyday intention, not in legal documents.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item" id="f3">
+    <div class="faq-q" onclick="faq('f3')">
+      <h4>Why do different numerologists give different answers?</h4>
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-body" id="f3b">
+      <div class="faq-body-inner">
+        Most only use one system. We cross-verify using three — Chaldean, Pythagorean, and Vedic Astrology — so your correction is confirmed across all three. This is why our results are more precise and lasting than a generic calculator or single-system reading.
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item" id="f4">
+    <div class="faq-q" onclick="faq('f4')">
+      <h4>How soon will I see results?</h4>
+      <div class="faq-icon">+</div>
+    </div>
+    <div class="faq-body" id="f4b">
+      <div class="faq-body-inner">
+        Most people notice a subtle shift in clarity and ease within the first 2–4 weeks of consistently using their corrected name. Deeper life changes in money, career, and relationships typically unfold over 1–3 months as the new vibration settles in.
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════
+     STICKY BOTTOM BAR
+═══════════════════════════════════ -->
+<div class="sticky-bar">
+  <div class="sticky-bar__urgency">
+    <span class="sticky-bar__pulse"></span>
+    <span>Current discounted slot ends in</span>
+  </div>
+  <div class="sticky-bar__countdown" id="stickyCountdown" aria-live="polite">
+    <div class="sticky-bar__unit">
+      <span class="sticky-bar__value" id="stickyMinutes">15</span>
+      <span class="sticky-bar__label">Minutes</span>
+    </div>
+    <div class="sticky-bar__unit">
+      <span class="sticky-bar__value" id="stickySeconds">00</span>
+      <span class="sticky-bar__label">Seconds</span>
+    </div>
+  </div>
+  <a href="#order" class="btn-primary">🔥 Yes, Send My Report Now →</a>
+</div>
+
+
+<script>
+  function faq(id) {
+    const item = document.getElementById(id);
+    const body = document.getElementById(id + 'b');
+    const wasOpen = item.classList.contains('active');
+
+    document.querySelectorAll('.faq-item').forEach(el => {
+      el.classList.remove('active');
+      el.querySelector('.faq-body').classList.remove('open');
+    });
+
+    if (!wasOpen) {
+      item.classList.add('active');
+      body.classList.add('open');
+    }
+  }
+</script>
+
+<script>
+  (function () {
+    var minutesEl = document.getElementById('stickyMinutes');
+    var secondsEl = document.getElementById('stickySeconds');
+    if (!minutesEl || !secondsEl) return;
+
+    var storageKey = 'numrologic-sticky-countdown-end';
+    var durationMs = 15 * 60 * 1000;
+
+    function getEndTime() {
+      var savedEndTime = Number(window.localStorage.getItem(storageKey));
+      if (!savedEndTime || savedEndTime <= Date.now()) {
+        savedEndTime = Date.now() + durationMs;
+        window.localStorage.setItem(storageKey, String(savedEndTime));
+      }
+      return savedEndTime;
+    }
+
+    var endTime = getEndTime();
+
+    function pad(value) {
+      return String(value).padStart(2, '0');
+    }
+
+    function renderCountdown() {
+      var remainingMs = endTime - Date.now();
+
+      if (remainingMs <= 0) {
+        endTime = Date.now() + durationMs;
+        window.localStorage.setItem(storageKey, String(endTime));
+        remainingMs = durationMs;
+      }
+
+      var totalSeconds = Math.floor(remainingMs / 1000);
+      var minutes = Math.floor(totalSeconds / 60);
+      var seconds = totalSeconds % 60;
+
+      minutesEl.textContent = pad(minutes);
+      secondsEl.textContent = pad(seconds);
+    }
+
+    renderCountdown();
+    window.setInterval(renderCountdown, 1000);
+  })();
+</script>
+
+<script>
+  (function () {
+    var vid = document.getElementById('s2-video');
+    if (!vid) return;
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          vid.querySelectorAll('source[data-src]').forEach(function (s) {
+            s.src = s.dataset.src;
+            s.removeAttribute('data-src');
+          });
+          vid.load();
+          vid.play().catch(function () {});
+          obs.disconnect();
+        }
+      });
+    }, { rootMargin: '200px' });
+    obs.observe(vid);
+  })();
+</script>
+
+</body>
+</html>
