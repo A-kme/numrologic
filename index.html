@@ -1700,22 +1700,41 @@
 <!-- ═══════════════════════════════════
      STICKY BOTTOM BAR
 ═══════════════════════════════════ -->
-<div class="sticky-bar">
-  <div class="sticky-bar__urgency">
-    <span class="sticky-bar__pulse"></span>
-    <span>Current discounted slot ends in</span>
-  </div>
-  <div class="sticky-bar__countdown" id="stickyCountdown" aria-live="polite">
-    <div class="sticky-bar__unit">
-      <span class="sticky-bar__value" id="stickyHours">02</span>
-      <span class="sticky-bar__label">Hours</span>
+<div class="sticky-bar" style="padding:10px 16px 12px;">
+  <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:9px;">
+
+    <!-- Left: label -->
+    <p style="color:#fff;font-family:'Noto Serif',serif;font-weight:800;font-size:0.88rem;line-height:1.3;flex-shrink:0;">Special Offer<br>Expiring In:</p>
+
+    <!-- Right: countdown -->
+    <div style="display:flex;align-items:flex-start;gap:4px;" aria-live="polite">
+
+      <div style="text-align:center;min-width:36px;">
+        <span id="stickyHours" style="display:block;font-family:'Noto Serif',serif;font-size:1.15rem;font-weight:800;color:#fff;line-height:1;">02</span>
+        <span style="display:block;font-size:0.48rem;font-weight:700;color:var(--gold);letter-spacing:0.07em;text-transform:uppercase;margin-top:3px;">Hours</span>
+      </div>
+
+      <span style="color:var(--gold);font-size:1rem;font-weight:800;line-height:1;padding-top:1px;">:</span>
+
+      <div style="text-align:center;min-width:36px;">
+        <span id="stickyMinutes" style="display:block;font-family:'Noto Serif',serif;font-size:1.15rem;font-weight:800;color:#fff;line-height:1;">00</span>
+        <span style="display:block;font-size:0.48rem;font-weight:700;color:var(--gold);letter-spacing:0.07em;text-transform:uppercase;margin-top:3px;">Minutes</span>
+      </div>
+
+      <span style="color:var(--gold);font-size:1rem;font-weight:800;line-height:1;padding-top:1px;">:</span>
+
+      <div style="text-align:center;min-width:36px;">
+        <span id="stickySeconds" style="display:block;font-family:'Noto Serif',serif;font-size:1.15rem;font-weight:800;color:#fff;line-height:1;">00</span>
+        <span style="display:block;font-size:0.48rem;font-weight:700;color:var(--gold);letter-spacing:0.07em;text-transform:uppercase;margin-top:3px;">Seconds</span>
+      </div>
+
     </div>
-    <div class="sticky-bar__unit">
-      <span class="sticky-bar__value" id="stickyMinutes">00</span>
-      <span class="sticky-bar__label">Minutes</span>
-    </div>
   </div>
-  <a href="#order" class="btn-primary">🔥 Yes, Send My Report Now →</a>
+
+  <a href="#order" class="btn-primary" style="border-radius:8px;padding:13px 20px;font-size:0.95rem;">
+    Get Instant Access at ₹497
+    <small>Limited Time Offer | Special 98% OFF</small>
+  </a>
 </div>
 
 
@@ -1741,7 +1760,8 @@
   (function () {
     var hoursEl = document.getElementById('stickyHours');
     var minutesEl = document.getElementById('stickyMinutes');
-    if (!hoursEl || !minutesEl) return;
+    var secondsEl = document.getElementById('stickySeconds');
+    if (!hoursEl || !minutesEl || !secondsEl) return;
 
     var storageKey = 'numrologic-sticky-countdown-end-v2';
     var durationMs = 2 * 60 * 60 * 1000;
@@ -1770,12 +1790,14 @@
         remainingMs = durationMs;
       }
 
-      var totalMinutes = Math.floor(remainingMs / 60000);
-      var hours = Math.floor(totalMinutes / 60);
-      var minutes = totalMinutes % 60;
+      var totalSeconds = Math.floor(remainingMs / 1000);
+      var hours = Math.floor(totalSeconds / 3600);
+      var minutes = Math.floor((totalSeconds % 3600) / 60);
+      var seconds = totalSeconds % 60;
 
       hoursEl.textContent = pad(hours);
       minutesEl.textContent = pad(minutes);
+      secondsEl.textContent = pad(seconds);
     }
 
     renderCountdown();
