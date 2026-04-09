@@ -1,0 +1,620 @@
+﻿<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>NumroLogic | The Alchemist's Codex</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#e6c364",
+                        "on-error": "#690005",
+                        "on-tertiary": "#1e2b66",
+                        "background": "#161311",
+                        "surface-container-high": "#2d2927",
+                        "on-primary": "#3d2e00",
+                        "on-secondary-fixed": "#211633",
+                        "on-tertiary-fixed": "#041451",
+                        "secondary-fixed-dim": "#d0c0e7",
+                        "on-background": "#e9e1dd",
+                        "inverse-primary": "#755b00",
+                        "tertiary-fixed": "#dde1ff",
+                        "surface-variant": "#383432",
+                        "error": "#ffb4ab",
+                        "tertiary": "#b9c4ff",
+                        "on-tertiary-fixed-variant": "#35437e",
+                        "on-primary-fixed-variant": "#584400",
+                        "surface-container-low": "#1e1b19",
+                        "surface-container-lowest": "#100e0c",
+                        "on-secondary-fixed-variant": "#4d4161",
+                        "primary-fixed-dim": "#e6c364",
+                        "on-surface": "#e9e1dd",
+                        "on-secondary": "#362b4a",
+                        "secondary": "#d0c0e7",
+                        "tertiary-fixed-dim": "#b9c3ff",
+                        "inverse-surface": "#e9e1dd",
+                        "tertiary-container": "#9ba8eb",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#d0c5b2",
+                        "surface-container": "#221f1d",
+                        "on-primary-container": "#503d00",
+                        "primary-container": "#c9a84c",
+                        "surface-dim": "#161311",
+                        "secondary-fixed": "#ebdcff",
+                        "surface": "#161311",
+                        "on-primary-fixed": "#241a00",
+                        "inverse-on-surface": "#33302d",
+                        "outline": "#99907e",
+                        "on-secondary-container": "#c1b2d8",
+                        "primary": "#e6c364",
+                        "surface-container-highest": "#383432",
+                        "outline-variant": "#4d4637",
+                        "primary-fixed": "#ffe08f",
+                        "on-tertiary-container": "#2e3b77",
+                        "surface-bright": "#3c3836",
+                        "error-container": "#93000a",
+                        "secondary-container": "#4f4364"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #161311;
+            color: #e9e1dd;
+            font-family: 'Manrope', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .serif-text { font-family: 'Noto Serif', serif; }
+        .gold-border { border: 1px solid rgba(230, 195, 100, 0.4); }
+        .gold-border-solid { border: 1px solid #e6c364; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .page-shell {
+            width: min(100%, 100vw);
+            margin: 0 auto;
+        }
+        .page-section,
+        .page-footer,
+        .page-hero {
+            width: min(100%, 100vw);
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .topbar-shell {
+            left: 0;
+            right: 0;
+            width: 100%;
+        }
+        .pricing-card {
+            max-width: 820px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-actions {
+            align-items: center;
+        }
+        .hero-actions > * {
+            width: min(100%, 540px);
+        }
+        .topbar-links {
+            display: none;
+        }
+        .menu-toggle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #e6c364;
+            background: transparent;
+        }
+        .mobile-menu-panel {
+            display: none;
+            position: fixed;
+            top: 72px;
+            left: 1rem;
+            right: 1rem;
+            z-index: 45;
+            padding: 1rem;
+            border: 1px solid rgba(230, 195, 100, 0.18);
+            border-radius: 1.25rem;
+            background: rgba(22, 19, 17, 0.96);
+            backdrop-filter: blur(24px);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.28);
+        }
+        .mobile-menu-panel.is-open {
+            display: block;
+        }
+        .mobile-menu-link {
+            display: block;
+            padding: 0.95rem 0.25rem;
+            border-bottom: 1px solid rgba(230, 195, 100, 0.12);
+            color: rgba(233, 225, 221, 0.88);
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        .mobile-menu-link:last-child {
+            border-bottom: 0;
+        }
+        .footer-columns {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 2.5rem;
+        }
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+            width: 100%;
+            max-width: 190px;
+        }
+        .footer-column a,
+        .footer-column p {
+            display: block;
+        }
+        .footer-copy {
+            max-width: 360px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        @media (min-width: 768px) {
+            .page-shell {
+                max-width: none;
+                padding-bottom: 0;
+            }
+            .topbar-shell {
+                width: min(calc(100% - 48px), 1200px);
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+                border-bottom-left-radius: 24px;
+                border-bottom-right-radius: 24px;
+            }
+            .page-hero,
+            .page-section,
+            .page-footer {
+                width: min(calc(100% - 48px), 1200px);
+            }
+            .topbar-links {
+                display: flex;
+                align-items: center;
+                gap: 1.25rem;
+            }
+            .menu-toggle,
+            .mobile-menu-panel {
+                display: none !important;
+            }
+            .page-hero {
+                padding-top: 8.5rem;
+                padding-bottom: 5rem;
+            }
+            .hero-actions {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(240px, 320px));
+                justify-content: center;
+                align-items: stretch;
+            }
+            .hero-actions > * {
+                width: 100%;
+            }
+            .hero-stats {
+                gap: 5rem;
+            }
+            .report-grid,
+            .testimonial-grid {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 1.5rem;
+            }
+            .report-grid > *,
+            .testimonial-grid > * {
+                height: 100%;
+            }
+            .report-grid > :not([hidden]) ~ :not([hidden]),
+            .testimonial-grid > :not([hidden]) ~ :not([hidden]) {
+                margin-top: 0;
+            }
+            .lead-block {
+                max-width: 720px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .footer-columns {
+                justify-content: center;
+                gap: 5rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .page-hero {
+                padding-top: 9rem;
+            }
+            .page-hero h1 {
+                font-size: 4.5rem;
+                line-height: 1.05;
+            }
+            .page-section h2,
+            .page-footer h2 {
+                line-height: 1.15;
+            }
+            .report-grid {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+            .testimonial-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+        @media (max-width: 767px) {
+            .page-footer {
+                padding-left: 1.25rem;
+                padding-right: 1.25rem;
+                padding-bottom: 7rem;
+            }
+            .footer-columns {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.75rem;
+                margin-bottom: 2rem;
+            }
+            .footer-column {
+                max-width: 280px;
+                text-align: left;
+            }
+            .footer-column a {
+                line-height: 1.6;
+            }
+            .footer-copy {
+                max-width: 320px;
+            }
+            .hero-actions > * {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="page-shell min-h-screen relative shadow-2xl overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="topbar-shell fixed top-0 z-50 bg-[#161311]/80 backdrop-blur-xl border-b border-[#e6c364]/20 flex justify-between items-center px-6 py-4">
+<span class="text-xl font-serif font-bold text-[#e6c364]">NumroLogic</span>
+<div class="topbar-links text-sm font-semibold text-on-surface/70">
+<a class="hover:text-primary transition-colors" href="index.html">Home</a>
+<a class="hover:text-primary transition-colors" href="about.html">About</a>
+<a class="hover:text-primary transition-colors" href="#contact">Contact</a>
+</div>
+<div class="flex items-center">
+<button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu" type="button">
+<span class="material-symbols-outlined text-[#e6c364]" data-icon="menu">menu</span>
+</button>
+</div>
+</nav>
+<div class="mobile-menu-panel" id="mobileMenu">
+<a class="mobile-menu-link" href="index.html">Home</a>
+<a class="mobile-menu-link" href="about.html">About Us</a>
+<a class="mobile-menu-link" href="#contact">Contact</a>
+</div>
+<!-- Hero Section -->
+<header class="page-hero pt-28 pb-16 px-6 text-center">
+<div class="inline-flex items-center gap-2 bg-[#503d00]/30 border border-[#e6c364]/30 px-4 py-1.5 rounded-full mb-8">
+<span class="material-symbols-outlined text-[#e6c364] text-sm" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-[10px] font-bold tracking-widest uppercase text-[#e6c364]">Trusted by 2000+ people across India</span>
+</div>
+<h1 class="serif-text text-4xl leading-tight font-bold mb-4 text-on-surface">
+            Your Name Is Blocking, <br/> <span class="text-primary italic">Your Destiny</span>
+</h1>
+<p class="serif-text text-lg italic text-[#e6c364]/80 mb-10">We Show You Exactly How</p>
+<div class="hero-actions flex flex-col gap-4 mb-12">
+<a class="bg-primary-container text-on-primary font-bold py-4 rounded-full text-sm tracking-wide active:scale-95 transition-transform flex items-center justify-center gap-2" href="https://lp.numrologic.com/">
+                Get My Report -> Rs 497
+            </a>
+<a class="border border-primary text-primary font-bold py-4 rounded-full text-sm tracking-wide active:scale-95 transition-transform flex items-center justify-center" href="#pricing">
+                See What's Inside
+            </a>
+</div>
+<div class="hero-stats flex justify-center gap-8 pt-4 border-t border-[#e6c364]/10">
+<div class="text-center">
+<p class="text-xl font-bold font-headline text-primary">2,000+</p>
+<p class="text-[10px] uppercase tracking-widest text-on-surface/50">Reports Delivered</p>
+</div>
+<div class="text-center">
+<p class="text-xl font-bold font-headline text-primary">4.8★</p>
+<p class="text-[10px] uppercase tracking-widest text-on-surface/50">Average Rating</p>
+</div>
+</div>
+</header>
+<div class="w-10 h-[1px] bg-primary/40 mx-auto"></div>
+<!-- The Report Section -->
+<section class="page-section py-20 px-6">
+<h2 class="serif-text text-3xl font-bold text-center mb-12">The Report</h2>
+<div class="report-grid space-y-6">
+<!-- Card 1 -->
+<div class="bg-secondary-container rounded-lg p-6 gold-border flex flex-col gap-4">
+<div class="h-48 rounded-md bg-[#161311] overflow-hidden relative border border-[#e6c364]/10">
+<img class="w-full h-full object-cover opacity-60" data-alt="Dark mystical oracle card showing sacred geometry symbols in purple and gold lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFTFi2UgX2moZcYiBxytTMLc5eQRuxsMju5Hm4j_HUm8ol7TDWFF2bsQZvST4iZvtyLAIK5DUHj9FwK3dcJdjYrC6uLu-fIrG5w_ygQQKr2ZN7Zh3xOOQjKzFY-JWOVfKNe67jPhjS22RRbmspZSDtaunZXw3SePyDqQ7crtIpLllTYi2iQZZ0rV6WW7nVZDPVB4qziaF5wh_Q_4MLnd98epuinqrGCJpPfih9bACPKrnvqFnELK-fWkLumC4xEStTRK4ChfA1yhLV"/>
+<div class="absolute inset-0 bg-gradient-to-t from-secondary-container via-transparent to-transparent"></div>
+<span class="absolute top-4 right-4 bg-primary text-on-primary text-[10px] font-bold px-3 py-1 rounded-full uppercase">Module 01</span>
+</div>
+<div>
+<h3 class="text-xs font-bold tracking-widest text-primary uppercase mb-2">CORE NUMBERS</h3>
+<p class="serif-text text-xl text-on-surface">Life Path · Destiny · Expression</p>
+</div>
+<button class="text-primary text-sm font-bold flex items-center gap-2 group">
+                    See This Module <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Card 2 -->
+<div class="bg-secondary-container rounded-lg p-6 gold-border flex flex-col gap-4">
+<div class="h-48 rounded-md bg-[#161311] overflow-hidden relative border border-[#e6c364]/10">
+<img class="w-full h-full object-cover opacity-60" data-alt="Macro photography of ancient manuscript calligraphy with glowing golden ink highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtQD2OAxAGpK9zXmpfOCii1OTWjuZyprUI3L9iNxICVxrxlmdM3FmCty4fs7NZAVWhOwAJEUxw5xdCo2GYTjg8xXJwyQ5Klqxr_H5vINPo3IaNGC5F035aDbwtbPnc6B4nzJ3K7RYX8rJudwbfOoMh1tF46nYqvnslsR8zJDrr4uvZugWfRXE63FbhoKNrO-Rk3NQj_--9tBh_QACX1MVzizsOOzCi9vDYiAYUwbdCUdwbep4eM_QoLehTeVFaEILbdKov_9fTLQ38"/>
+<div class="absolute inset-0 bg-gradient-to-t from-secondary-container via-transparent to-transparent"></div>
+<span class="absolute top-4 right-4 bg-primary text-on-primary text-[10px] font-bold px-3 py-1 rounded-full uppercase">Module 02</span>
+</div>
+<div>
+<h3 class="text-xs font-bold tracking-widest text-primary uppercase mb-2">NAME VIBRATION</h3>
+<p class="serif-text text-xl text-on-surface">Full Name Correction Analysis</p>
+</div>
+<button class="text-primary text-sm font-bold flex items-center gap-2">
+                    See This Module <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Card 3 -->
+<div class="bg-secondary-container rounded-lg p-6 gold-border flex flex-col gap-4">
+<div class="h-48 rounded-md bg-[#161311] overflow-hidden relative border border-[#e6c364]/10">
+<img class="w-full h-full object-cover opacity-60" data-alt="Two hands reaching for each other against a starlit cosmic background with ethereal energy connections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5-NoVmlXVv2P9djA3CAsqewh58YzZ1T9G3QT2bDVNbDJun_xdhHs9SPKFADRykpAmGxcmKBPm03ka_B3PKTdMCsL1wn0FG3xU_K2q-nacVtHHdXF3f1bzaSa89sCfJdCjUCRL4EYv8Ux2xrzIwjkVerHKnJK6cXYATCCpdAthwxeqlEeqRPmJV3hvprqw67TAINkcF1-EFu6R3yV4EAVqaglS-vMpP4Qy8FS1MadWOgh33DwzGSeLD5wq7cPQAv5kiXb7qu4y_xP_"/>
+<div class="absolute inset-0 bg-gradient-to-t from-secondary-container via-transparent to-transparent"></div>
+<span class="absolute top-4 right-4 bg-primary text-on-primary text-[10px] font-bold px-3 py-1 rounded-full uppercase">Module 03</span>
+</div>
+<div>
+<h3 class="text-xs font-bold tracking-widest text-primary uppercase mb-2">LOVE AND RELATIONSHIPS</h3>
+<p class="serif-text text-xl text-on-surface">Compatibility and Soul Numbers</p>
+</div>
+<button class="text-primary text-sm font-bold flex items-center gap-2">
+                    See This Module <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<!-- Card 4 -->
+<div class="bg-secondary-container rounded-lg p-6 gold-border flex flex-col gap-4">
+<div class="h-48 rounded-md bg-[#161311] overflow-hidden relative border border-[#e6c364]/10">
+<img class="w-full h-full object-cover opacity-60" data-alt="Glistening golden sun rays illuminating a precision clockwork mechanism in a dark room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBd51iICZa7ljL2smD3vun2QsAPLgUbJJ5B8Zw4oFzNixzMLUlX4Q5coUB96d1rA97GfDSQDNHTuCNM5_vCmOwSZy91WwBCmuB4BnPWk7bLI7-efbjcsDK8ZyG8QQHV3WVW926LdSjPXgbP3Jiwt0MSKWUkP9VL0OrMWaTN2itGMO7C19xzj2hLJOeH2IDO-T7HpYvUCmFzUO6Db7IGtlocJerDUEaVdsNCOlGkGCnM5nYGhPWFc__OR5AUmqDr8R6lAs2bOMbcKMsK"/>
+<div class="absolute inset-0 bg-gradient-to-t from-secondary-container via-transparent to-transparent"></div>
+<span class="absolute top-4 right-4 bg-primary text-on-primary text-[10px] font-bold px-3 py-1 rounded-full uppercase">Module 04</span>
+</div>
+<div>
+<h3 class="text-xs font-bold tracking-widest text-primary uppercase mb-2">WEALTH TIMING</h3>
+<p class="serif-text text-xl text-on-surface">Money Cycles · Career Timing</p>
+</div>
+<button class="text-primary text-sm font-bold flex items-center gap-2">
+                    See This Module <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<div class="w-10 h-[1px] bg-primary/40 mx-auto"></div>
+<!-- Why NumroLogic -->
+<section class="page-section py-20 px-6">
+<h2 class="serif-text text-3xl font-bold text-center mb-6">Why NumroLogic</h2>
+<p class="lead-block text-center text-on-surface/70 leading-relaxed mb-12 px-2">
+            Most numerology apps use automated algorithms. We blend ancient Chaldean, Pythagorean, and Vedic systems to create a manual calculation of your unique frequency.
+        </p>
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-surface-container-high p-6 rounded-lg text-center border border-[#e6c364]/10">
+<p class="text-2xl font-headline font-bold text-primary mb-1">3</p>
+<p class="text-[10px] uppercase tracking-wider text-on-surface/60 font-bold leading-tight">Systems<br/>Combined</p>
+</div>
+<div class="bg-surface-container-high p-6 rounded-lg text-center border border-[#e6c364]/10">
+<p class="material-symbols-outlined text-primary mb-2" data-icon="edit_note">edit_note</p>
+<p class="text-[10px] uppercase tracking-wider text-on-surface/60 font-bold leading-tight">Hand<br/>Crafted</p>
+</div>
+<div class="bg-surface-container-high p-6 rounded-lg text-center border border-[#e6c364]/10">
+<p class="text-2xl font-headline font-bold text-primary mb-1">0</p>
+<p class="text-[10px] uppercase tracking-wider text-on-surface/60 font-bold leading-tight">Generic<br/>Templates</p>
+</div>
+<div class="bg-surface-container-high p-6 rounded-lg text-center border border-[#e6c364]/10">
+<p class="text-2xl font-headline font-bold text-primary mb-1">48h</p>
+<p class="text-[10px] uppercase tracking-wider text-on-surface/60 font-bold leading-tight">Fast<br/>Delivery</p>
+</div>
+</div>
+</section>
+<div class="w-10 h-[1px] bg-primary/40 mx-auto"></div>
+<!-- What People Say -->
+<section class="page-section py-20 px-6">
+<h2 class="serif-text text-3xl font-bold text-center mb-12">What People Say</h2>
+<div class="testimonial-grid space-y-6">
+<div class="bg-secondary-container/40 p-8 rounded-lg gold-border">
+<div class="flex gap-1 mb-4">
+<span class="material-symbols-outlined text-[#e6c364] text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#e6c364] text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#e6c364] text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#e6c364] text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#e6c364] text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="serif-text italic text-on-surface text-lg leading-relaxed mb-4">"The name correction suggested by NumroLogic changed my career trajectory. Within 3 months, I landed my dream role."</p>
+<p class="text-[10px] uppercase tracking-widest text-primary font-bold">- Priyanshu M., Bangalore</p>
+</div>
+<div class="bg-secondary-container/40 p-8 rounded-lg gold-border">
+<div class="flex gap-1 mb-4">
+<span class="material-symbols-outlined text-[#e6c364] text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#e6c364] text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#e6c364] text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#e6c364] text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#e6c364] text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="serif-text italic text-on-surface text-lg leading-relaxed mb-4">"I finally understand why my business was stuck. The wealth cycles were incredibly accurate."</p>
+<p class="text-[10px] uppercase tracking-widest text-primary font-bold">- Anjali K., Mumbai</p>
+</div>
+<div class="bg-secondary-container/40 p-8 rounded-lg gold-border">
+<div class="flex gap-1 mb-4">
+<span class="material-symbols-outlined text-[#e6c364] text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#e6c364] text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#e6c364] text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#e6c364] text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[#e6c364] text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="serif-text italic text-on-surface text-lg leading-relaxed mb-4">"Highly detailed and very professional. Not like the cheap reports you get on other apps."</p>
+<p class="text-[10px] uppercase tracking-widest text-primary font-bold">- Rohan S., Delhi</p>
+</div>
+</div>
+</section>
+<!-- Pricing Card -->
+<section class="page-section py-20 px-6" id="pricing">
+<div class="pricing-card bg-secondary-container rounded-lg overflow-hidden gold-border shadow-2xl">
+<div class="p-8 text-center bg-surface-container-high/50 border-b border-[#e6c364]/10">
+<div class="inline-block bg-[#005221] text-[#71ff9c] text-[10px] font-bold px-3 py-1 rounded-full uppercase mb-4">Save 75%</div>
+<div class="flex items-center justify-center gap-2 mb-2">
+<span class="text-primary text-5xl font-headline font-bold">₹497</span>
+</div>
+<p class="text-xs text-on-surface/50 line-through decoration-primary/50">Original Price: ₹1,999</p>
+</div>
+<div class="p-8">
+<ul class="space-y-4 mb-10">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm text-on-surface/90">Detailed Name Vibration Analysis</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm text-on-surface/90">Exact Spelling Corrections</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm text-on-surface/90">3-Year Wealth Timeline</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm text-on-surface/90">Personalized Lucky Gems &amp; Colors</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm text-on-surface/90">Career &amp; Business Timing Guide</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm text-on-surface/90">Life Path &amp; Soul Urge Reading</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm text-on-surface/90">Signature Correction Guidance</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="text-sm text-on-surface/90">Mobile Friendly PDF Delivery</span>
+</li>
+</ul>
+<a class="w-full bg-primary-container text-on-primary font-bold py-5 rounded-full text-sm tracking-wide shadow-lg mb-6 active:scale-95 transition-transform flex items-center justify-center gap-2" href="https://lp.numrologic.com/">
+                    Yes Correct My Name Now ->
+                </a>
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-center gap-2 opacity-50">
+<span class="material-symbols-outlined text-xs" data-icon="verified">verified</span>
+                  <span class="text-[10px] uppercase tracking-widest font-bold">Secure Payment</span>
+</div>
+<div class="flex items-center justify-center gap-6 opacity-50">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="schedule">schedule</span>
+<span class="text-[10px] uppercase font-bold tracking-widest">48hr Delivery</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="star">star</span>
+<span class="text-[10px] uppercase font-bold tracking-widest">4.8 Rated</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Email Capture Section -->
+<section class="page-section py-20 px-6 bg-surface-container-low">
+<div class="lead-block text-center mb-8">
+<h2 class="serif-text text-2xl font-bold mb-3">Get Your Free Numerology Starter</h2>
+<p class="text-sm text-on-surface/60">Start your journey with a basic analysis of your current name vibration.</p>
+</div>
+<form class="lead-block space-y-4">
+<div class="group">
+<input class="w-full bg-transparent border-0 border-b border-primary/30 py-4 focus:ring-0 focus:border-primary text-on-surface placeholder:text-on-surface/30 font-body transition-colors" placeholder="Your Name" type="text"/>
+</div>
+<div class="group">
+<input class="w-full bg-transparent border-0 border-b border-primary/30 py-4 focus:ring-0 focus:border-primary text-on-surface placeholder:text-on-surface/30 font-body transition-colors" placeholder="Email Address" type="email"/>
+</div>
+<button class="w-full bg-primary text-on-primary font-bold py-4 rounded-full text-sm tracking-wide mt-6 hover:bg-primary/90 transition-colors">
+                Send My Free Reading ->
+            </button>
+</form>
+</section>
+<!-- Footer -->
+<footer class="page-footer bg-[#100e0c] pt-16 pb-24 px-8 text-center border-t border-[#e6c364]/10" id="contact">
+<h2 class="text-2xl font-serif font-bold text-primary italic mb-8">NumroLogic</h2>
+<div class="footer-columns flex justify-center gap-10 mb-10">
+<div class="footer-column">
+<p class="text-[10px] uppercase tracking-widest text-primary font-bold mb-1">Legal</p>
+<a class="text-xs text-on-surface/50 hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="text-xs text-on-surface/50 hover:text-primary transition-colors" href="#">Cancellation Policy</a>
+<a class="text-xs text-on-surface/50 hover:text-primary transition-colors" href="#">Refund</a>
+<a class="text-xs text-on-surface/50 hover:text-primary transition-colors" href="#">Term and Condition</a>
+</div>
+<div class="footer-column">
+<p class="text-[10px] uppercase tracking-widest text-primary font-bold mb-1">Contact</p>
+<p class="text-xs text-on-surface/70 font-semibold leading-relaxed">DYN PRODUCTIVITY SEMPRE PRIVATE LIMITED</p>
+<p class="text-xs text-on-surface/50 leading-relaxed">C 137 Sector 10 Noida Gautam Buddha Nagar Pincode 201301</p>
+<a class="text-xs text-on-surface/50 hover:text-primary transition-colors" href="tel:+919717434358">+91 9717434358</a>
+</div>
+<div class="footer-column">
+<p class="text-[10px] uppercase tracking-widest text-primary font-bold mb-1">Email</p>
+<a class="text-xs text-on-surface/50 hover:text-primary transition-colors" href="mailto:abhishek@numrologic.com">abhishek@numrologic.com</a>
+</div>
+</div>
+<p class="footer-copy text-[10px] leading-relaxed text-on-surface/30 mb-8 mx-auto">
+            Disclaimer: NumroLogic provides numerology-based report generation and interpretive guidance for personal insight. Results may vary and should not replace professional medical, legal, or financial advice.
+        </p>
+<p class="footer-copy text-[10px] leading-relaxed text-on-surface/30 mb-8 mx-auto">
+            Not affiliated with Facebook or Google. Celebrity images are for illustrative purposes only - no endorsement implied. Some visuals generated using AI tools for design purposes.
+        </p>
+<p class="footer-copy text-[10px] font-manrope tracking-wide opacity-70 text-on-surface/50 uppercase mx-auto">
+            Copyright 2026 NumroLogic.
+        </p>
+</footer>
+<script>
+    (function () {
+        var toggle = document.getElementById('menuToggle');
+        var menu = document.getElementById('mobileMenu');
+        if (!toggle || !menu) return;
+
+        function closeMenu() {
+            menu.classList.remove('is-open');
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+
+        toggle.addEventListener('click', function () {
+            var isOpen = menu.classList.toggle('is-open');
+            toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+
+        menu.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', closeMenu);
+        });
+
+        document.addEventListener('click', function (event) {
+            if (!menu.classList.contains('is-open')) return;
+            if (menu.contains(event.target) || toggle.contains(event.target)) return;
+            closeMenu();
+        });
+    })();
+</script>
+</body></html>
