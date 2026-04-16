@@ -1,0 +1,43 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "routes": [
+    {
+      "src": "^/$",
+      "dest": "/index.html"
+    },
+    {
+      "src": "^/home$",
+      "status": 308,
+      "headers": {
+        "Location": "/"
+      }
+    },
+    {
+      "src": "^/services$",
+      "dest": "/services/index.html"
+    },
+    {
+      "src": "^/about$",
+      "dest": "/about.html"
+    },
+    {
+      "src": "^/privacy-policy$",
+      "dest": "/privacy-policy.html"
+    },
+    {
+      "src": "^/refund-policy$",
+      "dest": "/refund-policy.html"
+    },
+    {
+      "src": "^/shipping-policy$",
+      "dest": "/shipping-policy.html"
+    },
+    {
+      "src": "^/terms-and-conditions$",
+      "dest": "/terms-and-conditions.html"
+    },
+    {
+      "handle": "filesystem"
+    }
+  ]
+}
