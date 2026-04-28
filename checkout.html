@@ -5,6 +5,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>Name Correction Report</title>
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
   <script type="text/javascript">
@@ -308,9 +309,9 @@
   <main class="w-full max-w-xl mx-auto px-4 md:px-8 py-8 bg-[#f0fdf4] rounded-3xl shadow-sm mb-12">
     <p class="text-center font-bold text-lg mb-6">Enter Your Best Name &amp; Email Id To Proceed Your Order</p>
 
-    <form class="flex flex-col gap-4 mb-8">
-      <input class="w-full border-outline-variant rounded-md py-3 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors bg-white shadow-sm" placeholder="Full Name" type="text"/>
-      <input class="w-full border-outline-variant rounded-md py-3 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors bg-white shadow-sm" placeholder="Email ID" type="email"/>
+    <form id="checkoutForm" class="flex flex-col gap-4 mb-8">
+      <input id="ckName" class="w-full border-outline-variant rounded-md py-3 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors bg-white shadow-sm" placeholder="Full Name" type="text" required/>
+      <input id="ckEmail" class="w-full border-outline-variant rounded-md py-3 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors bg-white shadow-sm" placeholder="Email ID" type="email" required/>
       <div>
         <label class="field-label" for="date-of-birth">Date of Birth</label>
         <input class="w-full border-outline-variant rounded-md py-3 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors bg-white shadow-sm" id="date-of-birth" name="dateOfBirth" type="date"/>
@@ -321,7 +322,7 @@
       </div>
       <div class="phone-row">
         <div class="country-select-wrap">
-          <select class="country-select" aria-label="Country code" name="countryCode">
+          <select class="country-select" aria-label="Country code" name="countryCode" id="ckCountryCode">
             <option value="+91" selected="">India +91</option>
             <option value="+1">United States +1</option>
             <option value="+44">United Kingdom +44</option>
@@ -331,13 +332,13 @@
           </select>
           <span class="country-select-arrow">▾</span>
         </div>
-        <input class="w-full border-outline-variant rounded-r-md py-3 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors bg-white shadow-sm" placeholder="Phone Number" type="tel"/>
+        <input id="ckPhone" class="w-full border-outline-variant rounded-r-md py-3 px-4 focus:ring-2 focus:ring-primary focus:border-primary transition-colors bg-white shadow-sm" placeholder="Phone Number" type="tel" required/>
       </div>
     </form>
 
     <div class="flex flex-col gap-6 mb-8">
       <div class="border-2 border-dashed border-red-500 bg-red-50 rounded-xl p-4 flex gap-3 items-start relative">
-        <input class="mt-1 w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox"/>
+        <input id="addon-priority" class="mt-1 w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary addon-checkbox" type="checkbox" data-price="389"/>
         <div class="flex-1">
           <div class="bg-yellow-300 inline-block px-1 font-bold text-black mb-2 leading-tight">
             Yes! Also Add Priority Process Handling to my Order
@@ -352,7 +353,7 @@
       </div>
 
       <div class="border-2 border-dashed border-red-500 bg-red-50 rounded-xl p-4 flex gap-3 items-start relative">
-        <input class="mt-1 w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox"/>
+        <input id="addon-legal" class="mt-1 w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary addon-checkbox" type="checkbox" data-price="499"/>
         <div class="flex-1">
           <div class="bg-yellow-300 inline-block px-1 font-bold text-black mb-2 leading-tight">
             Yes! Also Add Legal Document Templates to my Order
@@ -367,7 +368,7 @@
       </div>
 
       <div class="border-2 border-dashed border-red-500 bg-red-50 rounded-xl p-4 flex gap-3 items-start relative">
-        <input class="mt-1 w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox"/>
+        <input id="addon-consult" class="mt-1 w-5 h-5 rounded border-gray-300 text-primary focus:ring-primary addon-checkbox" type="checkbox" data-price="999"/>
         <div class="flex-1">
           <div class="bg-yellow-300 inline-block px-1 font-bold text-black mb-2 leading-tight">
             Yes! Also Add Expert Consultation Call to my Order
@@ -392,24 +393,26 @@
           <input checked="" class="text-blue-500" type="radio"/>
           <span>Name Correction Report</span>
         </div>
-        <span>INR 1,499</span>
+        <span>INR 497</span>
       </div>
       <div class="bg-gray-50 border border-gray-200 rounded-lg p-4">
         <div class="font-bold mb-2">Order Summary</div>
         <div class="flex justify-between text-gray-600 mb-1">
-          <span>Total</span>
-          <span>INR 1,499</span>
+          <span>Base Report</span>
+          <span>INR 497</span>
         </div>
+        <div id="addonSummaryLines"></div>
         <div class="flex justify-between font-bold text-black border-t border-gray-200 pt-2 mt-1">
           <span>Order Total</span>
-          <span>INR 1,499.00</span>
+          <span id="orderTotalDisplay">INR 497.00</span>
         </div>
       </div>
     </div>
 
 
-    <button class="w-full bg-[#22c55e] text-white font-bold text-lg py-4 rounded-md shadow-md hover:bg-green-600 transition-colors mb-6">
-      Complete Order
+    <div id="checkoutError" style="display:none;background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.3);border-radius:0.5rem;padding:0.6rem 0.8rem;font-size:0.85rem;color:#dc2626;margin-bottom:0.75rem;"></div>
+    <button id="completeOrderBtn" type="button" class="w-full bg-[#22c55e] text-white font-bold text-lg py-4 rounded-md shadow-md hover:bg-green-600 transition-colors mb-6">
+      Complete Order — INR <span id="btnTotalDisplay">497</span>
     </button>
 
     <div class="flex flex-col items-center gap-2 pt-4 border-t border-gray-200">
@@ -434,7 +437,7 @@
       <p>Email Support Access (Value ₹999)</p>
     </div>
     <div class="text-xl font-bold mb-2">Total Value: ₹5,497</div>
-    <div class="text-3xl font-h1 font-bold text-[#c29b62]">Today's Price: ₹1,499 + GST</div>
+    <div class="text-3xl font-h1 font-bold text-[#c29b62]">Today's Price: ₹497</div>
   </section>
 
   <section class="w-full bg-[#f0fdf4] py-16 mb-16">
@@ -503,5 +506,141 @@
       <a class="hover:underline" href="services.html">Contact</a>
     </div>
   </footer>
+
+<script>
+(function () {
+  // ─── Config ──────────────────────────────────────────────
+  var BASE_PRICE = 497;
+  var ADDON_NAMES = {
+    'addon-priority': 'Priority Process Handling',
+    'addon-legal':    'Legal Document Templates',
+    'addon-consult':  'Expert Consultation Call'
+  };
+
+  // ─── Elements ────────────────────────────────────────────
+  var checkboxes       = document.querySelectorAll('.addon-checkbox');
+  var orderTotalEl     = document.getElementById('orderTotalDisplay');
+  var btnTotalEl       = document.getElementById('btnTotalDisplay');
+  var addonLinesEl     = document.getElementById('addonSummaryLines');
+  var completeBtn      = document.getElementById('completeOrderBtn');
+  var errorEl          = document.getElementById('checkoutError');
+
+  // ─── Calculate & Render Total ────────────────────────────
+  function recalcTotal() {
+    var total = BASE_PRICE;
+    var linesHTML = '';
+
+    checkboxes.forEach(function (cb) {
+      if (cb.checked) {
+        var price = parseInt(cb.getAttribute('data-price'), 10);
+        var name  = ADDON_NAMES[cb.id] || 'Add-on';
+        total += price;
+        linesHTML += '<div class="flex justify-between text-gray-600 mb-1">' +
+                     '<span>+ ' + name + '</span>' +
+                     '<span>INR ' + price.toLocaleString('en-IN') + '</span></div>';
+      }
+    });
+
+    addonLinesEl.innerHTML = linesHTML;
+    orderTotalEl.textContent = 'INR ' + total.toLocaleString('en-IN', { minimumFractionDigits: 2 });
+    btnTotalEl.textContent   = total.toLocaleString('en-IN');
+    return total;
+  }
+
+  checkboxes.forEach(function (cb) {
+    cb.addEventListener('change', recalcTotal);
+  });
+
+  // ─── Helpers ─────────────────────────────────────────────
+  function showError(msg) {
+    errorEl.textContent = msg;
+    errorEl.style.display = 'block';
+  }
+  function hideError() {
+    errorEl.style.display = 'none';
+  }
+  function setLoading(loading) {
+    if (loading) {
+      completeBtn.disabled = true;
+      completeBtn.style.opacity = '0.7';
+      completeBtn.style.pointerEvents = 'none';
+      completeBtn.innerHTML = '<svg style="display:inline-block;width:20px;height:20px;margin-right:8px;" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="white" stroke-width="3" fill="none" stroke-dasharray="31.4" stroke-dashoffset="10"><animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="0.7s" repeatCount="indefinite"/></circle></svg> Processing...';
+    } else {
+      completeBtn.disabled = false;
+      completeBtn.style.opacity = '1';
+      completeBtn.style.pointerEvents = '';
+      var total = recalcTotal();
+      completeBtn.innerHTML = 'Complete Order \u2014 INR <span id="btnTotalDisplay">' + total.toLocaleString('en-IN') + '</span>';
+    }
+  }
+
+  // ─── Phone validation: digits only ───────────────────────
+  var phoneInput = document.getElementById('ckPhone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function () {
+      this.value = this.value.replace(/\D/g, '').slice(0, 10);
+    });
+  }
+
+  // ─── Complete Order Handler ──────────────────────────────
+  completeBtn.addEventListener('click', async function () {
+    hideError();
+
+    var name  = document.getElementById('ckName').value.trim();
+    var email = document.getElementById('ckEmail').value.trim();
+    var phone = document.getElementById('ckPhone').value.trim();
+
+    // Validate
+    if (!name) { showError('Please enter your full name.'); return; }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showError('Please enter a valid email address.'); return;
+    }
+    if (!phone || phone.length !== 10) {
+      showError('Please enter a valid 10-digit phone number.'); return;
+    }
+
+    var totalAmount = recalcTotal();
+    setLoading(true);
+
+    try {
+      // Step 1 — Create order on backend
+      var response = await fetch('/api/create-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          customerName:  name,
+          customerEmail: email,
+          customerPhone: phone,
+          amount: totalAmount
+        })
+      });
+
+      var data = await response.json();
+
+      if (!data.success || !data.payment_session_id) {
+        showError(data.message || 'Could not create order. Please try again.');
+        setLoading(false);
+        return;
+      }
+
+      // Step 2 — Open Cashfree checkout
+      var cashfree = Cashfree({ mode: 'production' });
+
+      cashfree.checkout({
+        paymentSessionId: data.payment_session_id,
+        redirectTarget: '_self'
+      });
+
+    } catch (err) {
+      console.error('Payment error:', err);
+      showError('Something went wrong. Please check your connection and try again.');
+      setLoading(false);
+    }
+  });
+
+  // Initial render
+  recalcTotal();
+})();
+</script>
 </body>
 </html>

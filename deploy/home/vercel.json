@@ -17,6 +17,10 @@
       "dest": "/services/index.html"
     },
     {
+      "src": "^/checkout$",
+      "dest": "/checkout/index.html"
+    },
+    {
       "src": "^/about$",
       "dest": "/about.html"
     },

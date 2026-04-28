@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Payment Successful | NumroLogic</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#e6c364",
+                        "on-primary": "#3d2e00",
+                        "primary-container": "#c9a84c",
+                        "background": "#161311",
+                        "surface": "#161311",
+                        "surface-container": "#221f1d",
+                        "surface-container-high": "#2d2927",
+                        "on-surface": "#e9e1dd",
+                        "on-surface-variant": "#d0c5b2",
+                        "outline": "#99907e",
+                    },
+                    fontFamily: {
+                        headline: ["Noto Serif"],
+                        body: ["Manrope"],
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #161311;
+            color: #e9e1dd;
+            font-family: 'Manrope', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .serif-text { font-family: 'Noto Serif', serif; }
+
+        @keyframes checkPop {
+            0% { transform: scale(0); opacity: 0; }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .check-pop { animation: checkPop 0.6s ease-out 0.3s both; }
+        .fade-up-1 { animation: fadeUp 0.5s ease-out 0.6s both; }
+        .fade-up-2 { animation: fadeUp 0.5s ease-out 0.8s both; }
+        .fade-up-3 { animation: fadeUp 0.5s ease-out 1.0s both; }
+        .fade-up-4 { animation: fadeUp 0.5s ease-out 1.2s both; }
+        .shimmer-text {
+            background: linear-gradient(90deg, #e6c364 0%, #fff5d4 40%, #e6c364 80%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+        }
+        .gold-glow {
+            box-shadow: 0 0 60px rgba(230, 195, 100, 0.15), 0 0 120px rgba(230, 195, 100, 0.05);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center px-6 relative overflow-hidden">
+
+    <!-- Background decorative elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#e6c364]/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-[#e6c364]/3 rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="relative z-10 max-w-lg w-full text-center">
+
+        <!-- Animated check icon -->
+        <div class="check-pop mb-8">
+            <div class="w-24 h-24 mx-auto rounded-full bg-gradient-to-br from-[#e6c364] to-[#c9a84c] flex items-center justify-center gold-glow">
+                <span class="material-symbols-outlined text-[#161311] text-5xl" style="font-variation-settings: 'FILL' 1, 'wght' 700;">check_circle</span>
+            </div>
+        </div>
+
+        <!-- Title -->
+        <h1 class="serif-text text-3xl md:text-4xl font-bold mb-3 fade-up-1">
+            <span class="shimmer-text">Payment Successful!</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-on-surface/70 text-lg mb-8 fade-up-2">
+            Thank you for choosing <span class="text-primary font-semibold">NumroLogic</span>
+        </p>
+
+        <!-- Info card -->
+        <div class="bg-surface-container-high/80 backdrop-blur-xl border border-[#e6c364]/20 rounded-2xl p-8 mb-8 fade-up-3">
+            <div class="flex items-center justify-center gap-2 mb-6">
+                <span class="material-symbols-outlined text-primary text-lg" style="font-variation-settings: 'FILL' 1;">schedule</span>
+                <p class="text-sm font-bold text-primary uppercase tracking-widest">What happens next</p>
+            </div>
+
+            <div class="space-y-5 text-left">
+                <div class="flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span class="text-primary text-xs font-bold">1</span>
+                    </div>
+                    <div>
+                        <p class="text-on-surface font-semibold text-sm">Report Preparation Begins</p>
+                        <p class="text-on-surface/50 text-xs mt-0.5">Our experts will start crafting your personalized numerology report immediately.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span class="text-primary text-xs font-bold">2</span>
+                    </div>
+                    <div>
+                        <p class="text-on-surface font-semibold text-sm">Delivered Within 48 Hours</p>
+                        <p class="text-on-surface/50 text-xs mt-0.5">Your detailed PDF report will be emailed to you within 48 hours.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-full bg-primary/10 border border-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <span class="text-primary text-xs font-bold">3</span>
+                    </div>
+                    <div>
+                        <p class="text-on-surface font-semibold text-sm">Check Your Email</p>
+                        <p class="text-on-surface/50 text-xs mt-0.5">Keep an eye on your inbox (and spam folder) for updates from NumroLogic.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order ID display -->
+            <div class="mt-6 pt-5 border-t border-[#e6c364]/10">
+                <p class="text-[10px] uppercase tracking-widest text-on-surface/40 mb-1">Order Reference</p>
+                <p class="text-primary font-mono text-sm font-bold" id="orderIdDisplay">—</p>
+            </div>
+        </div>
+
+        <!-- Back button -->
+        <a href="home.html" class="fade-up-4 inline-flex items-center gap-2 border border-primary/40 text-primary font-bold py-3 px-8 rounded-full text-sm tracking-wide hover:bg-primary/10 transition-colors">
+            <span class="material-symbols-outlined text-sm">arrow_back</span>
+            Back to Home
+        </a>
+
+        <!-- Contact -->
+        <p class="fade-up-4 text-on-surface/30 text-xs mt-8">
+            Questions? Email us at <a href="mailto:abhishek@numrologic.com" class="text-primary/60 hover:text-primary transition-colors">abhishek@numrologic.com</a>
+        </p>
+    </div>
+
+    <script>
+        // Extract order_id from URL and display it
+        (function() {
+            var params = new URLSearchParams(window.location.search);
+            var orderId = params.get('order_id');
+            var el = document.getElementById('orderIdDisplay');
+            if (orderId && el) {
+                el.textContent = orderId;
+            }
+        })();
+    </script>
+</body>
+</html>
