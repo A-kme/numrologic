@@ -163,6 +163,49 @@
             if (orderId && el) {
                 el.textContent = orderId;
             }
+
+            // --- Send Webhook to Boost.space ---
+            var WEBHOOK_URL = 'https://hook.integrator.boost.space/upnaz7g1h9nxv6y6cwki82hh5ospmlmb';
+            
+            // Check if we already fired it for this order to prevent duplicates on refresh
+            if (orderId && !localStorage.getItem('webhook_sent_' + orderId)) {
+                try {
+                    var pendingData = JSON.parse(localStorage.getItem('pendingOrderData') || '{}');
+                    var payload = {
+                        event: 'payment_completed',
+                        order_id: orderId,
+                        amount: pendingData.amount || 0,
+                        currency: 'INR',
+                        customer_name: pendingData.customer_name || '',
+                        customer_email: pendingData.customer_email || '',
+                        customer_phone: pendingData.customer_phone || '',
+                        addons: pendingData.addons || [],
+                        utm_source: localStorage.getItem('utm_source') || '',
+                        utm_medium: localStorage.getItem('utm_medium') || '',
+                        utm_campaign: localStorage.getItem('utm_campaign') || '',
+                        utm_term: localStorage.getItem('utm_term') || '',
+                        utm_content: localStorage.getItem('utm_content') || '',
+                        page_url: window.location.href,
+                        timestamp: new Date().toISOString()
+                    };
+
+                    fetch(WEBHOOK_URL, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    }).then(function(res) {
+                        if (res.ok) {
+                            localStorage.setItem('webhook_sent_' + orderId, 'true');
+                            // Clean up pending data
+                            localStorage.removeItem('pendingOrderData');
+                        }
+                    }).catch(function(err) {
+                        console.error('[Webhook Error]', err);
+                    });
+                } catch (e) {
+                    console.error('[Webhook Parse Error]', e);
+                }
+            }
         })();
     </script>
 </body>
